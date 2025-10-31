@@ -1,0 +1,1563 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 1.25rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.9);
+    height: auto;
+    min-height: 100vh;
+}
+
+.main {
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+/* Шрифты */
+@font-face {
+    font-family: "Affect";
+    src: url("../fonts/affect.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Affect";
+    src: url("../fonts/affect_light.otf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unbounded";
+    src: url("../fonts/Unbounded-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unbounded";
+    src: url("../fonts/Unbounded-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: medium;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unbounded";
+    src: url("../fonts/Unbounded-Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Общие стили для header и footer */
+.header,
+.footer {
+    position: relative;
+    background-color: #fff;
+    margin: 0 7.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 100;
+}
+
+.nav__list {
+    display: flex;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #222;
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+}
+
+.nav__link {
+    display: block;
+    color: #222;
+    font-family: "Affect", sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: color .3s ease;
+}
+
+.nav__link:hover {
+    color: #4F07B6;
+}
+
+/* Главный блок */
+.hero {
+    background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
+    height: 26.5rem;
+    margin: 3rem 7.5rem 5.25rem 7.5rem;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero__content {
+    margin-left: 4rem;
+    margin-top: 0.5rem;
+}
+
+.hero__img {
+    width: 27rem;
+    margin-right: 1rem;
+    margin-top: 1.2rem;
+}
+
+.hero__title {
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+    font-size: 5.5rem;
+    color: #004A7A;
+}
+
+.hero__text {
+    font-family: "Affect", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.hero__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.social-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.social-link__icon {
+    width: 4rem;
+    height: 4rem;
+}
+
+.button--download {
+    background: #4F07B6;
+    color: rgba(255, 255, 255, 0.9);
+    width: 26rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.8rem;
+    font-family: "Affect", sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    border: none;
+}
+
+.button--download:hover,
+.button--download:focus {
+    background: #3D0590;
+    transform: translateY(-0.125rem);
+}
+
+/* Блок преимуществ */
+.advantages {
+    margin: 0 7.5rem 5.25rem 7.5rem;
+}
+
+.advantages__title {
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+    font-size: 2.625rem;
+    color: #222;
+    margin-bottom: 1.875rem;
+}
+
+.advantages__row {
+    display: flex;
+    gap: 1.063rem;
+    margin-bottom: 0.875rem;
+}
+
+.advantages__row:last-child {
+    margin-bottom: 0;
+}
+
+.advantages__text {
+    background: #004A7A;
+    border-radius: 0.938rem;
+}
+
+.advantages__text--large {
+    width: 30rem;
+    height: 12rem;
+}
+
+.advantages__text--small {
+    width: 17.625rem;
+    height: 12rem;
+}
+
+.advantages__text-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Affect", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding-left: 1.125rem;
+}
+
+.advantages__text--large .advantages__text-content {
+    padding-top: 7rem;
+}
+
+.advantages__text--small .advantages__text-content {
+    padding-top: 4rem;
+}
+
+/* Карточки */
+.advantage-card {
+    width: 14.5rem;
+    height: 12rem;
+    position: relative;
+}
+
+.advantage-card__inner,
+.advantage-card__back {
+    position: relative;
+    width: 14.5rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.938rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.advantage-card__bg {
+    position: absolute;
+    background: transparent;
+    top: 0;
+    left: 0;
+    width: 14.5rem;
+    height: 12rem;
+}
+
+.advantage-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-top: 0.7rem;
+    z-index: 1;
+}
+
+.advantage-card__image {
+    width: 6.8rem;
+    height: 6.8rem;
+}
+
+.advantage-card__icon .advantage-card__image:first-child {
+    margin-left: 1.5rem;
+}
+
+.advantage-card__icon .advantage-card__image:nth-child(2) {
+    margin-left: 0.8rem;
+}
+
+.advantage-card__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-end;
+    padding: 0 1rem 1.2rem 1.2rem;
+    z-index: 1;
+    position: relative;
+}
+
+.advantage-card__text {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Affect", sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+    align-items: flex-end;
+    min-height: 2.5rem;
+}
+
+/* Кнопки карточек */
+.advantage-card__button {
+    background: transparent;
+    cursor: pointer;
+    padding: 0.2rem;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.advantage-card__button:hover {
+    transform: scale(1.1);
+}
+
+.advantage-card__button-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.4rem;
+}
+
+/* Анимация раскрытия карточек */
+.advantage-card__info {
+    position: absolute;
+    background: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 0.938rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    z-index: 3;
+}
+
+.advantage-card__inner.active .advantage-card__info {
+    height: 100%;
+}
+
+.advantage-card__back {
+    padding-top: 3rem;
+}
+
+.advantage-card__info p {
+    font-family: "Affect", sans-serif;
+    font-size: 0.7rem;
+    text-align: left;
+    padding-left: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    visibility: hidden;
+}
+
+/* Кнопка закрытия */
+.advantage-card__close {
+    position: absolute;
+    margin-bottom: 8rem;
+    margin-right: 10rem;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    z-index: 10;
+    width: 1.875rem;
+    height: 1.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+}
+
+.advantage-card__close:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* Анимации появления контента */
+.advantage-card__inner.active .advantage-card__close {
+    visibility: visible;
+    animation: fadeIn 0.3s ease 0.2s both;
+}
+
+.advantage-card__inner.active .advantage-card__info p {
+    visibility: visible;
+    animation: slideIn 0.4s ease 0.2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Эффект при наведении на карточку */
+.advantage-card__inner:hover {
+    transform: translateY(-0.313rem);
+    box-shadow: 0 0.5rem 1.563rem rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Заголовки секций */
+.about-app__title,
+.contacts__title,
+.advantages__title {
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+    font-size: 2.625rem;
+    color: #222;
+    margin-bottom: 1.875rem;
+}
+
+/* Блок о приложении */
+.about-app {
+    margin: 0 7.5rem 5.25rem 7.5rem;
+}
+
+.about-app__subtitle {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+/* Аккордеоны */
+.accordion {
+    width: 60rem;
+    margin-bottom: 0.5rem;
+}
+
+.accordion__item {
+    width: 43rem;
+    border-radius: 0.938rem;
+    border: 0.25rem solid #004A7A;
+    background: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.accordion__item:nth-child(1),
+.accordion__item:nth-child(2),
+.accordion__item:nth-child(3) {
+    margin-left: 16rem;
+    margin-right: 0;
+}
+
+.accordion__item:nth-child(4),
+.accordion__item:nth-child(5),
+.accordion__item:nth-child(6) {
+    margin-left: 0;
+    margin-right: 20rem;
+}
+
+.accordion__header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 1);
+    transition: background-color 0.3s ease;
+    min-height: 3.8rem;
+}
+
+.accordion__header:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.accordion__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.accordion__title {
+    color: #004A7A;
+    font-family: "Affect", sans-serif;
+    font-size: 1.1rem;
+    flex-grow: 1;
+    font-weight: normal;
+}
+
+.accordion__toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    transition: transform 0.4s ease;
+}
+
+.accordion__toggle img {
+    width: 2.3rem;
+    height: 2.3rem;
+    transform: rotate(90deg);
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    background: #004A7A;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion__content p {
+    padding: 1.5rem 2.5rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Affect", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.accordion__item.active .accordion__content {
+    max-height: 18rem;
+}
+
+.accordion__item.active .accordion__toggle {
+    transform: rotate(180deg);
+}
+
+.accordion__item:not(.active) .accordion__header {
+    padding: 0.8rem 1.5rem;
+    min-height: 3.5rem;
+}
+
+/* Блок "Как пользоваться" */
+.usage-steps {
+    display: flex;
+    position: relative;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.usage-step {
+    position: relative;
+}
+
+.usage-step__bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.usage-step__number,
+.usage-step__text {
+    position: absolute;
+    font-family: "Unbounded", sans-serif;
+    font-weight: normal;
+    left: 1.8rem;
+    color: rgba(255, 255, 255, 1);
+}
+
+.usage-step__number {
+    font-size: 4.625rem;
+    top: 9rem;
+}
+
+.usage-step__text {
+    font-size: 1.2rem;
+    top: 1.5rem;
+}
+
+/* Блок скачивания */
+.download-block {
+    display: flex;
+    position: relative;
+    z-index: 0;
+}
+
+.download-block__content {
+    position: relative;
+}
+
+.download-block__text {
+    position: absolute;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: "Affect", sans-serif;
+    z-index: 1;
+    left: 2rem;
+    top: 8rem;
+    color: #222;
+}
+
+.button--appstore,
+.button--playmarket {
+    position: absolute;
+    z-index: 1;
+    top: 15rem;
+    background: #4F07B6;
+    color: rgba(255, 255, 255, 0.9);
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    font-family: "Affect", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+}
+
+.button--appstore:hover,
+.button--playmarket:hover {
+    background: #3D0590;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 4px 12px rgba(79, 7, 182, 0.3);
+}
+
+.button--appstore:active,
+.button--playmarket:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(79, 7, 182, 0.3);
+}
+
+.button--appstore {
+    left: 2rem;
+}
+
+.button--playmarket {
+    left: 16rem;
+}
+
+.download-block__frame {
+    width: 30.125rem;
+    height: 30.438rem;
+}
+
+.download-block__img {
+    width: 27.75rem;
+    height: 33.375rem;
+}
+
+/* Слайдер */
+.slider__container {
+    position: relative;
+    width: 60rem;
+    height: 31.563rem;
+    margin: 0 7.5rem 5.25rem 7.5rem;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slider__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.slider__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background: linear-gradient(135deg, #9FCBCE 0%, rgba(159, 203, 206, 0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__slide--active {
+    opacity: 1;
+}
+
+.slider__content {
+    text-align: center;
+    padding: 2rem;
+    max-width: 80%;
+}
+
+.slider__dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.slider__dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.slider__dot--active {
+    background: #4F07B6;
+    transform: scale(1.2);
+}
+
+.slider__dot:hover {
+    background: rgba(79, 7, 182, 0.7);
+    transform: scale(1.1);
+}
+
+.slider__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider__button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider__button--prev {
+    left: 1rem;
+}
+
+.slider__button--next {
+    right: 1rem;
+}
+
+/* Блок контактов */
+.contacts {
+    margin: 0 7.5rem 2rem 7.5rem;
+}
+
+.contacts__content {
+    display: flex;
+    gap: 3rem; 
+    align-items: flex-start;
+}
+
+.contacts__form {
+    width: 100%;
+    max-width: 26.563rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
+    padding: 2rem;
+    flex-shrink: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form__input,
+.form__textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.925rem;
+    border: 1px solid #ccc;
+    font-family: "Affect", sans-serif;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.form__textarea {
+    height: 6.5rem;
+    resize: vertical;
+    font-family: "Affect", sans-serif;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+    border-color: #4F07B6;
+    box-shadow: 0 0 0 2px rgba(79, 7, 182, 0.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.625rem;
+    font-family: "Affect", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    flex: 1;
+}
+
+.button--secondary {
+    background: #6c757d;
+    color: rgba(255, 255, 255, 1);
+}
+
+.button--secondary:hover {
+    background: #5a6268;
+    transform: translateY(-0.125rem);
+}
+
+.button--primary {
+    background: #4F07B6;
+    color: rgba(255, 255, 255, 1);
+}
+
+.button--primary:hover {
+    background: #3D0590;
+    transform: translateY(-0.125rem);
+}
+
+.contacts__info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 400px;
+    min-height: 400px;
+}
+
+.contacts__frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.contacts__text-block {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.contacts__frame-bg {
+    width: 30rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contacts__text {
+    position: absolute;
+    left: 2.5rem;
+    color: #222;
+    font-family: "Affect", sans-serif;
+    z-index: 2;
+    width: 25rem;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.contacts__text--large {
+    top: 4.5rem;
+    font-size: 1.5rem;
+}
+
+.contacts__text--small {
+    font-size: 1rem;
+    top: 11rem;
+}
+
+.contacts__social {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.contacts__social .social-link__icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Футер */
+.footer {
+    margin: 7rem 7.5rem 0 7.5rem;
+    padding: 1rem 0;
+}
+
+/* Медиа-запросы для адаптивности */
+
+/* 1366px */
+@media (max-width: 1366px) {
+    html {
+        font-size: 1.1rem;
+    }
+    
+    .header,
+    .footer {
+        margin: 0 5rem;
+    }
+    
+    .hero {
+        margin: 2.5rem 5rem 4rem 5rem;
+        height: 24rem;
+    }
+    
+    .hero__title {
+        font-size: 4.5rem;
+    }
+    
+    .hero__text {
+        font-size: 1.3rem;
+    }
+    
+    .advantages,
+    .about-app,
+    .contacts {
+        margin: 0 5rem 4rem 5rem;
+    }
+    
+    .slider__container {
+        width: 55rem;
+        height: 28rem;
+        margin: 0 5rem 4rem 5rem;
+    }
+    
+    .advantages__text--large {
+        width: 26rem;
+    }
+    
+    .advantages__text--small {
+        width: 15rem;
+    }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+    html {
+        font-size: 1rem;
+    }
+    
+    .header,
+    .footer {
+        margin: 0 4rem;
+    }
+    
+    .hero {
+        margin: 2rem 4rem 3.5rem 4rem;
+        height: 22rem;
+    }
+    
+    .hero__content {
+        margin-left: 3rem;
+    }
+    
+    .hero__title {
+        font-size: 4rem;
+    }
+    
+    .hero__text {
+        font-size: 1.2rem;
+    }
+    
+    .hero__img {
+        width: 24rem;
+    }
+    
+    .advantages,
+    .about-app,
+    .contacts {
+        margin: 0 4rem 3.5rem 4rem;
+    }
+    
+    .slider__container {
+        width: 50rem;
+        height: 26rem;
+        margin: 0 4rem 3.5rem 4rem;
+    }
+    
+    .advantages__row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .advantages__text--large,
+    .advantages__text--small {
+        width: 100%;
+        max-width: 30rem;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
+    
+    .advantages__text--large .advantages__text-content {
+        padding-top: 5rem;
+    }
+    
+    .advantages__text--small .advantages__text-content {
+        padding-top: 3rem;
+    }
+    
+    .advantage-card {
+        width: 13rem;
+        height: 11rem;
+    }
+    
+    .advantage-card__inner,
+    .advantage-card__back {
+        width: 13rem;
+        height: 11rem;
+    }
+    
+    .advantage-card__bg {
+        width: 13rem;
+        height: 11rem;
+    }
+    
+    .advantage-card__image {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    .accordion {
+        width: 100%;
+    }
+    
+    .accordion__item {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .download-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .download-block__content {
+        order: 2;
+    }
+    
+    .download-block__image {
+        order: 1;
+    }
+    
+    .download-block__text,
+    .button--appstore,
+    .button--playmarket {
+        position: static;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .download-block__buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .button--appstore,
+    .button--playmarket {
+        position: static;
+        margin: 0;
+    }
+}
+
+/* 960px */
+@media (max-width: 960px) {
+    html {
+        font-size: 0.9rem;
+    }
+    
+    .header,
+    .footer {
+        margin: 0 2rem;
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    .nav__list {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        margin: 1.5rem 2rem 2.5rem 2rem;
+        height: auto;
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+    
+    .hero__content {
+        margin-left: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .hero__title {
+        font-size: 3.5rem;
+    }
+    
+    .hero__text {
+        font-size: 1.1rem;
+    }
+    
+    .hero__img {
+        width: 20rem;
+        margin-right: 0;
+    }
+    
+    .button--download {
+        width: 20rem;
+        font-size: 1.3rem;
+    }
+    
+    .advantages,
+    .about-app,
+    .contacts {
+        margin: 0 2rem 2.5rem 2rem;
+    }
+    
+    .slider__container {
+        width: 100%;
+        height: 20rem;
+        margin: 0 2rem 2.5rem 2rem;
+    }
+    
+    .advantages__title,
+    .about-app__title,
+    .contacts__title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .about-app__subtitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .advantages__row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .advantage-card {
+        width: 100%;
+        max-width: 20rem;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
+    
+    .advantage-card__inner,
+    .advantage-card__back {
+        width: 100%;
+        height: 10rem;
+    }
+    
+    .advantage-card__bg {
+        width: 100%;
+        height: 10rem;
+    }
+    
+    .advantage-card__image {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .usage-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .usage-step {
+        width: 100%;
+        max-width: 20rem;
+    }
+    
+    .contacts__content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .contacts__form {
+        max-width: 100%;
+    }
+    
+    .contacts__info {
+        height: 300px;
+    }
+    
+    .contacts__frame-bg {
+        width: 100%;
+    }
+    
+    .contacts__text {
+        left: 1.5rem;
+        width: calc(100% - 3rem);
+    }
+    
+    .contacts__text--large {
+        font-size: 1.2rem;
+        top: 3rem;
+    }
+    
+    .contacts__text--small {
+        font-size: 0.9rem;
+        top: 8rem;
+    }
+    
+    .footer {
+        margin: 4rem 2rem 0 2rem;
+        text-align: center;
+    }
+}
+
+/* 360px (мобильные устройства) */
+@media (max-width: 480px) {
+    html {
+        font-size: 0.8rem;
+    }
+    
+    .header,
+    .footer {
+        margin: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .nav__list {
+        gap: 0.5rem;
+    }
+    
+    .nav__link {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+    
+    .hero {
+        margin: 1rem 1rem 2rem 1rem;
+        padding: 1.5rem;
+    }
+    
+    .hero__title {
+        font-size: 2.5rem;
+    }
+    
+    .hero__text {
+        font-size: 1rem;
+    }
+    
+    .hero__img {
+        width: 16rem;
+    }
+    
+    .social-link__icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .button--download {
+        width: 16rem;
+        font-size: 1.1rem;
+        height: 2.2rem;
+    }
+    
+    .advantages,
+    .about-app,
+    .contacts {
+        margin: 0 1rem 2rem 1rem;
+    }
+    
+    .slider__container {
+        height: 15rem;
+        margin: 0 1rem 2rem 1rem;
+    }
+    
+    .slider__button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .advantages__title,
+    .about-app__title,
+    .contacts__title {
+        font-size: 1.5rem;
+    }
+    
+    .about-app__subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .advantage-card {
+        height: 9rem;
+    }
+    
+    .advantage-card__inner,
+    .advantage-card__back {
+        height: 9rem;
+    }
+    
+    .advantage-card__bg {
+        height: 9rem;
+    }
+    
+    .advantage-card__image {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    .advantage-card__text {
+        font-size: 0.8rem;
+    }
+    
+    .accordion__header {
+        padding: 0.8rem 1rem;
+        min-height: 3rem;
+    }
+    
+    .accordion__icon {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;
+    }
+    
+    .accordion__title {
+        font-size: 0.9rem;
+    }
+    
+    .accordion__toggle img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+    
+    .accordion__content p {
+        padding: 1rem 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .usage-step__number {
+        font-size: 3rem;
+        top: 6rem;
+        left: 1rem;
+    }
+    
+    .usage-step__text {
+        font-size: 0.9rem;
+        top: 1rem;
+        left: 1rem;
+    }
+    
+    .download-block__text {
+        font-size: 1rem;
+        left: 1rem;
+        top: 6rem;
+    }
+    
+    .button--appstore,
+    .button--playmarket {
+        width: 10rem;
+        font-size: 0.8rem;
+        top: 12rem;
+    }
+    
+    .button--appstore {
+        left: 1rem;
+    }
+    
+    .button--playmarket {
+        left: 12rem;
+    }
+    
+    .download-block__frame {
+        width: 100%;
+        height: auto;
+    }
+    
+    .download-block__img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .contacts__form {
+        padding: 1.5rem;
+    }
+    
+    .form__buttons {
+        flex-direction: column;
+    }
+    
+    .contacts__info {
+        height: 250px;
+    }
+    
+    .contacts__text {
+        left: 1rem;
+        width: calc(100% - 2rem);
+    }
+    
+    .contacts__text--large {
+        font-size: 1rem;
+        top: 2rem;
+    }
+    
+    .contacts__text--small {
+        font-size: 0.8rem;
+        top: 6rem;
+    }
+    
+    .contacts__social {
+        left: 1rem;
+        bottom: 1rem;
+    }
+    
+    .contacts__social .social-link__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .footer {
+        margin: 2rem 1rem 0 1rem;
+    }
+}
+
+/* Дополнительные улучшения для мобильных устройств */
+@media (max-width: 360px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero__text {
+        font-size: 0.9rem;
+    }
+    
+    .button--download {
+        width: 14rem;
+        font-size: 1rem;
+    }
+    
+    .advantages__text-content {
+        font-size: 0.9rem;
+        padding-left: 1rem;
+    }
+    
+    .advantage-card__content {
+        padding: 0 0.8rem 0.8rem 0.8rem;
+    }
+    
+    .usage-step__bg {
+        min-height: 150px;
+    }
+    
+    .download-block__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button--appstore,
+    .button--playmarket {
+        position: static;
+        width: 12rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Ховер-эффекты только для устройств с курсором */
+@media (hover: hover) and (pointer: fine) {
+    .advantage-card__inner:hover {
+        transform: translateY(-0.313rem);
+    }
+    
+    .social-link:hover {
+        transform: translateY(-2px);
+    }
+    
+    .button:hover {
+        transform: translateY(-0.125rem);
+    }
+}
+
+/* Портретная ориентация */
+@media (max-width: 768px) and (orientation: portrait) {
+    .hero {
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .slider__container {
+        height: 18rem;
+    }
+}
+
+/* Ландшафтная ориентация для мобильных */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 300px;
+    }
+    
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero__content {
+        margin-bottom: 1rem;
+    }
+}

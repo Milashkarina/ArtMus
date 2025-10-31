@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtMus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#main" class="logo" aria-label="ArtMus - главная страница">ArtMus</a>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#main" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="#advantages" class="nav__link">Преимущества</a></li>
+                <li class="nav__item"><a href="#about-application" class="nav__link">О приложении</a></li>
+                <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero" id="main">
+            <div class="hero__content">
+                <h1 class="hero__title">ArtMus</h1>
+                <p class="hero__text">Чтобы интересно в музей сходить,<br>скачай ArtMus — мир искусства оживит!</p>
+                <div class="hero__social">
+                    <a href="#" class="social-link" aria-label="WhatsApp">
+                        <img class="social-link__icon" src="icon/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="#" class="social-link" aria-label="ВКонтакте">
+                        <img class="social-link__icon" src="icon/vk.svg" alt="ВКонтакте">
+                    </a>
+                    <a href="#" class="social-link" aria-label="Telegram">
+                        <img class="social-link__icon" src="icon/telegram.svg" alt="Telegram">
+                    </a>
+                </div>
+                <button class="button button--download">СКАЧАТЬ</button>
+            </div>
+            <div class="hero__image">
+                <img class="hero__img" src="img/slogan_img.png" alt="Два телефона с приложением ArtMus">
+            </div>
+        </section>
+
+        <section class="advantages" id="advantages">
+            <h1 class="advantages__title">Преимущества</h1>
+            <div class="advantages__row">
+                <div class="advantage-card">
+                    <div class="advantage-card__inner">
+                        <img class="advantage-card__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                        <div class="advantage-card__icon">
+                            <img class="advantage-card__image" src="icon/phone.svg" alt="Удобный интерфейс">
+                        </div>
+                        <div class="advantage-card__content">
+                            <p class="advantage-card__text">Удобство<br>и доступность</p>
+                            <button class="advantage-card__button" aria-label="Подробнее">
+                                <img class="advantage-card__button-icon" src="icon/more_details.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="advantage-card__info">
+                            <i class="advantage-card__close">&times;</i>
+                            <div class="advantage-card__back">
+                                <img class="advantage-card__bg" src="icon/advantages_block_back.svg" alt="" aria-hidden="true">  
+                                <p>Приложение объединяет всю необходимую информацию<br>о музеях и культурных событиях <br>в одном месте.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-card__inner">
+                        <img class="advantage-card__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                        <div class="advantage-card__icon">
+                            <img class="advantage-card__image" src="icon/like.svg" alt="Практическое применение">
+                        </div>
+                        <div class="advantage-card__content">
+                            <p class="advantage-card__text">Практическое<br>применение</p>
+                            <button class="advantage-card__button" aria-label="Подробнее">
+                                <img class="advantage-card__button-icon" src="icon/more_details.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="advantage-card__info">
+                            <i class="advantage-card__close">&times;</i>
+                            <div class="advantage-card__back">
+                                <img class="advantage-card__bg" src="icon/advantages_block_back.svg" alt="" aria-hidden="true">  
+                                <p>Применяйте полученные знания сразу же в музеях.<br>Интерактивные задания и квесты помогут закрепить материал<br>на практике.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advantages__text advantages__text--large">
+                    <p class="advantages__text-content">мы знаем, как важно сделать<br>посещение музея увлекательным<br>и познавательным</p>
+                </div>               
+            </div>
+            
+            <div class="advantages__row">
+                <div class="advantages__text advantages__text--small">
+                    <p class="advantages__text-content">погрузитесь <br> в мир искусства вместе<br> с нашим приложением!</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-card__inner">
+                        <img class="advantage-card__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                        <div class="advantage-card__icon">
+                            <img class="advantage-card__image" src="icon/puzzle.svg" alt="Образовательная составляющая">
+                        </div>
+                        <div class="advantage-card__content">
+                            <p class="advantage-card__text">Образовательная<br>составляющая</p>
+                            <button class="advantage-card__button" aria-label="Подробнее">
+                                <img class="advantage-card__button-icon" src="icon/more_details.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="advantage-card__info">
+                            <i class="advantage-card__close">&times;</i>
+                            <div class="advantage-card__back">
+                                <img class="advantage-card__bg" src="icon/advantages_block_back.svg" alt="" aria-hidden="true"> 
+                                <p class="advantage-card__info-text">Интерактивные игры помогают пользователям глубже <br> погружаться в историю <br>искусства,развивая знания <br> о направлениях,художниках <br>и произведениях искусства.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-card__inner">
+                        <img class="advantage-card__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                        <div class="advantage-card__icon">
+                            <img class="advantage-card__image" src="icon/functions.svg" alt="Уникальные функции">
+                        </div>
+                        <div class="advantage-card__content">
+                            <p class="advantage-card__text">Уникальные<br>функции</p>
+                            <button class="advantage-card__button" aria-label="Подробнее">
+                                <img class="advantage-card__button-icon" src="icon/more_details.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="advantage-card__info">
+                            <i class="advantage-card__close">&times;</i>
+                            <div class="advantage-card__back">
+                                <img class="advantage-card__bg" src="icon/advantages_block_back.svg" alt="" aria-hidden="true"> 
+                                <p>функция интерактивной карты позволят в интересной <br>и увлекательной форме увидеть интересные пересечения <br>в истории искусств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-card__inner">
+                        <img class="advantage-card__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                        <div class="advantage-card__icon">
+                            <img class="advantage-card__image" src="icon/calendar.svg" alt="Анонсы новых выставок">
+                        </div>
+                        <div class="advantage-card__content">
+                            <p class="advantage-card__text">Анонсы новых<br>выставок</p>
+                            <button class="advantage-card__button" aria-label="Подробнее">
+                                <img class="advantage-card__button-icon" src="icon/more_details.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="advantage-card__info">
+                            <i class="advantage-card__close">&times;</i>
+                            <div class="advantage-card__back">
+                                <img class="advantage-card__bg" src="icon/advantages_block_back.svg" alt="" aria-hidden="true"> 
+                                <p>Будьте в курсе всех культурных событий города. Получайте уведомления о новых выставках<br>и планируйте визиты заранее.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                                  
+            </div>
+        </section>
+        
+        <section class="about-app" id="about-application">
+            <h1 class="about-app__title">О приложении</h1>
+            <h3 class="about-app__subtitle">Возможности</h3>
+            <div class="accordion">
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/magnifying_glass.svg" alt="">
+                        <span class="accordion__title">полезная информация о музеях</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>узнайте всё самое важное о каждом музее перед визитом:<br>
+                        часы работы, стоимость билетов, советы для комфортного посещения.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/gamepad.svg" alt="">
+                        <span class="accordion__title">интерактивные игры</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>разные форматы игр,например:<br>
+                        «узнай фрагмент » — по стилю, фактам или известным работам угадайте мастера.<br>
+                        «правда или ложь» — угадайте самые невероятные факты о картинах и художниках.<br>
+                        «смотри в оба» — узнай к какому направлению относиться картина<br>
+                        смотри в оба“ — внимательно посмотрите на деталь и напишите название шедевра.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/coin.svg" alt="">
+                        <span class="accordion__title">система наград</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>система наград — зарабатывайте баллы и бейте рекорды!<br>
+                        вся ваша коллекция наград хранится в личном кабинете.</p>
+                    </div>
+                </div>               
+                
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/paper_map.svg" alt="">
+                        <span class="accordion__title">лента времени и взаимосвязи художников</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>визуальная лента времени — возможность посмотрите,<br> 
+                        в какую эпоху творил художник и кто был его современником.<br>
+                        Пересечения и влияние — нажмите на карточку художника и узнайте,<br>
+                        с кем он дружил, соперничал или учился.поймите,<br> 
+                        как эти встречи повлияли на его творчество и изменили ход истории искусства.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/bulb.svg" alt="">
+                        <span class="accordion__title">интересные факты</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>вы уверены, что знаете о музеях всё? <br>
+                        ArtMus приоткроет завесу тайны и покажет скрытую сторону искусства.<br>
+                        мы собираем самые неочевидные, поразительные и забавные факты,<br>
+                        которые превратят ваше посещение из простой прогулки в захватывающее расследование.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion__item">
+                    <div class="accordion__header">
+                        <img class="accordion__icon" src="icon/map_marker.svg" alt="">
+                        <span class="accordion__title">как  добраться удобнее?</span>
+                        <button class="accordion__toggle">
+                            <img src="icon/more_details.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="accordion__content">
+                        <p>наше приложение моментально предложит вам 
+                        оптимальные маршруты на метро, автобусе или трамвае.
+                        сравнение вариантов позволит Увидеть разницу во времени
+                        для каждого способа передвижения, чтобы выбрать то, 
+                        что подходит именно вам.</p>
+                    </div>
+                </div>                                    
+            </div>
+            
+            <h3 class="about-app__subtitle">Как пользоваться</h3>
+            <div class="usage-steps">
+                <div class="usage-step">
+                    <p class="usage-step__number">01</p>
+                    <p class="usage-step__text">скачайте <br> приложение</p>
+                    <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
+                </div>
+                <div class="usage-step">
+                    <p class="usage-step__number">02</p>
+                    <p class="usage-step__text">зарегистрируйтесь</p>
+                    <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
+                </div>
+                <div class="usage-step">
+                    <p class="usage-step__number">03</p>
+                    <p class="usage-step__text">изучайте искусство <br> с удовольствием</p>
+                    <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
+                </div>
+            </div>
+            
+            <h3 class="about-app__subtitle">Скачать</h3>
+            <div class="download-block">
+                <div class="download-block__content">
+                    <p class="download-block__text">Наше уникальное приложение <br> станет вашим верным спутником <br> в мире искусства</p>
+                    <button class="button button--appstore">Скачать в appstore</button>
+                    <button class="button button--playmarket">Скачать в playmarket</button>
+                    <img class="download-block__frame" src="icon/frame_block_download.svg" alt="">
+                </div>
+                <div class="download-block__image">
+                    <img class="download-block__img" src="img/download_img.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <div class="slider">
+                <div class="slider__container">
+                    <div class="slider__track">
+                        <div class="slider__slide slider__slide--active">
+                            <div class="slider__content">
+                                <img class="slider__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                            </div>
+                        </div>
+                        <div class="slider__slide">
+                            <div class="slider__content">
+                                <img class="slider__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                            </div>
+                        </div>
+                        <div class="slider__slide">
+                            <div class="slider__content">
+                                <img class="slider__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                            </div>
+                        </div>
+                        <div class="slider__slide">
+                            <div class="slider__content">
+                                <img class="slider__bg" src="icon/advantages_block_front.svg" alt="" aria-hidden="true">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slider__dots">
+                        <span class="slider__dot slider__dot--active" data-slide="0"></span>
+                        <span class="slider__dot" data-slide="1"></span>
+                        <span class="slider__dot" data-slide="2"></span>
+                        <span class="slider__dot" data-slide="3"></span>
+                    </div>
+                    
+                    <button class="slider__button slider__button--prev" aria-label="Предыдущий слайд">
+                        <img class="slider__button-icon" src="icon/more_details.svg" alt="">
+                    </button>
+                    <button class="slider__button slider__button--next" aria-label="Следующий слайд">
+                        <img class="slider__button-icon" src="icon/more_details.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <h3 class="contacts__title">Контакты</h3>
+            <div class="contacts__content">
+                <div class="contacts__form">
+                    <form class="form" action="" method="get">
+                        <div class="form__content">
+                            <label class="form__field">
+                                <input type="text" name="name" class="form__input" placeholder="Имя">
+                            </label>
+                            <label class="form__field">
+                                <input type="email" name="email" class="form__input" placeholder="E-mail">
+                            </label>
+                            <textarea class="form__textarea" placeholder="Сообщение"></textarea>                        
+                        </div>
+                        <div class="form__buttons">
+                            <button class="button button--secondary" type="reset">Очистить форму</button>
+                            <button class="button button--primary" type="submit">Отправить</button> 
+                        </div>
+                    </form>                
+                </div>
+                <div class="contacts__info">
+                    <div class="contacts__frame">
+                        <div class="contacts__text-block">
+                            <p class="contacts__text contacts__text--large">будем рады вашим отзывам и предложениям</p>
+                            <p class="contacts__text contacts__text--small">можете отправить форму или написать в наши соцсети</p>
+                            <img class="contacts__frame-bg" src="icon/frame_block_contacts.svg" alt="">
+                        </div>
+                        <div class="contacts__social">
+                            <a href="#" class="social-link" aria-label="WhatsApp">
+                                <img class="social-link__icon" src="icon/whatsapp.svg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="social-link" aria-label="ВКонтакте">
+                                <img class="social-link__icon" src="icon/vk.svg" alt="ВКонтакте">
+                            </a>
+                            <a href="#" class="social-link" aria-label="Telegram">
+                                <img class="social-link__icon" src="icon/telegram.svg" alt="Telegram">
+                            </a>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <a href="#main" class="logo" aria-label="ArtMus - главная страница">ArtMus</a>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#main" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="#advantages" class="nav__link">Преимущества</a></li>
+                <li class="nav__item"><a href="#about-application" class="nav__link">О приложении</a></li>
+                <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="java/script.js"></script>
+</body>
+</html>
