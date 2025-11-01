@@ -169,20 +169,20 @@ body {
     font-weight: bold;
     font-size: 5.5rem;
     color: #004A7A;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero__text {
     font-family: "Affect", sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
-    margin-bottom: 2rem;
+    margin-bottom: 0.2rem;
 }
 
 .hero__social {
     display: flex;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .social-link {
@@ -483,6 +483,7 @@ body {
     font-weight: 500;
     font-size: 2rem;
     color: #222;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
 
@@ -747,6 +748,9 @@ body {
     padding: 2rem;
     max-width: 80%;
 }
+.slider__button--prev{
+        transform: translateY(-50%) rotate(180deg);
+    }
 
 .slider__dots {
     position: absolute;
@@ -954,18 +958,30 @@ body {
     padding: 1rem 0;
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+/* мобильная версия */
 @media (max-width: 768px) {
     html {
         font-size: 14px;
     }
 
     /* Хедер с бургером  */
-    .burger-menu {
-        display: flex;
-        position: absolute;
-        right: 1rem;
-    }
+   .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.9rem;
+    height: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: absolute;
+    right: 1rem;
+    align-items: stretch; 
+}
+
+    
 
     .header {
         justify-content: flex-start;
@@ -1034,7 +1050,7 @@ body {
         flex-direction: column;
         gap: 1rem;
     }
-
+/* Главный блок*/
     .hero {
         margin: 1rem 1rem 2rem 1rem;
         padding: 2rem 1.5rem;
@@ -1052,9 +1068,10 @@ body {
     }
 
     .hero__img {
-        width: 280px;
+        width: 17.5rem;
         max-width: 100%;
         height: auto;
+        margin-left: 1rem;
     }
 
     .hero__content {
@@ -1111,7 +1128,8 @@ body {
     .about-app__subtitle {
         font-size: 1.3rem;
         text-align: left;
-        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
         padding-left: 0.5rem;
     }
 
@@ -1124,7 +1142,7 @@ body {
         margin: 0 1rem 3rem 1rem;
     }
 
-    /* КАРТОЧКИ ПРЕИМУЩЕСТВ */
+    /* Блок преимуществ */
     .advantages__row {
         flex-direction: column;
         gap: 1rem;
@@ -1248,7 +1266,7 @@ body {
         border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
-    /* ТЕКСТОВЫЕ БЛОКИ ПРЕИМУЩЕСТВ */
+    /* Текстовые блоки преимуществ */
     .advantages__text {
         border-radius: 1rem;
         width: 100% !important;
@@ -1307,8 +1325,8 @@ body {
     }
 
     .accordion__toggle img {
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     .accordion__content p {
@@ -1318,22 +1336,28 @@ body {
         text-align: left;
     }
 
-    /* БЛОК КАК ПОЛЬЗОВАТЬСЯ  */
+    /*Блок как пользоваться */
     .usage-steps {
         flex-direction: column;
         gap: 1rem;
+        width: 100%;
+        max-width: 100%; 
+        box-sizing: border-box;
+        align-items: stretch;
+        margin-left: 0;
     }
 
     .usage-step {
         width: 100%;
-        min-height: 120px;
-        padding: 1.5rem;
         border-radius: 1rem;
-        text-align: left;
+        text-align: center;
+        min-height: 7.5rem;
+        align-items: center;
+        position: relative;
         background: #004A7A;
         display: flex;
-        align-items: center;
         gap: 1rem;
+        
     }
 
     .usage-step__bg {
@@ -1342,7 +1366,6 @@ body {
 
     .usage-step__number {
         font-size: 2.2rem;
-        margin-bottom: 0;
         text-align: left;
         position: static;
         color: rgba(255, 255, 255, 1);
@@ -1355,10 +1378,9 @@ body {
         text-align: left;
         position: static;
         color: rgba(255, 255, 255, 1);
-        margin: 0;
     }
 
-    /* БЛОК СКАЧИВАНИЯ*/
+    /* Блок скачать*/
     .download-block {
         flex-direction: column;
         background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
@@ -1404,13 +1426,14 @@ body {
         order: 1;
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: left;
     }
 
     .download-block__img {
-        width: 250px;
+        width: 15.625rem;
         height: auto;
         max-width: 100%;
+
     }
 
     .slider-section {
@@ -1426,6 +1449,9 @@ body {
     .slider__button {
         width: 2.2rem;
         height: 2.2rem;
+    }
+    .slider__button--prev{
+        transform: translateY(-50%) rotate(180deg);
     }
 
     .slider__content {
