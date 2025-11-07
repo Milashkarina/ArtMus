@@ -1335,6 +1335,12 @@ body {
         padding: 1.5rem;
     }
 
+       .advantage-card__info p {
+        font-size: 1rem; 
+        line-height: 1.4; 
+        margin-bottom: 2rem;
+    }
+
     .advantages__text-content {
         font-size: 1.1rem;
         text-align: left;
@@ -1586,10 +1592,6 @@ body {
     }
 }
  
-
-   
- 
-
 /* Улучшение читаемости на мобильных устройствах */
 @media (max-width: 768px) {
     html {
@@ -1628,7 +1630,7 @@ body {
         font-size: 14px;
     }
 
-    /* Хедер с бургером  */
+    /*Бургер-меню  */
    .burger-menu {
     display: flex;
     flex-direction: column;
@@ -2239,7 +2241,7 @@ body {
     }
 }
 
-/* Скрыть скролл при открытом меню */
+/* Скрывать скролл при открытом меню */
 body.no-scroll {
     overflow: hidden;
 }
