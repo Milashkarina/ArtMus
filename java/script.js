@@ -81,6 +81,133 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Модальное окно скачивания
+// Модальное окно скачивания
+class DownloadModal {
+    constructor() {
+        this.modal = document.getElementById('downloadModal');
+        this.closeBtn = this.modal.querySelector('.modal__close');
+        // Только кнопка "СКАЧАТЬ" в геро-блоке открывает модальное окно
+        this.downloadButton = document.querySelector('.button--download');
+        
+        this.init();
+    }
+    
+    init() {
+        // Открытие модального окна только для главной кнопки скачать
+        this.downloadButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.open();
+        });
+        
+        // Кнопки в блоке скачать теперь ведут напрямую в магазины приложений
+        const appStoreButton = document.querySelector('.button--appstore');
+        const playMarketButton = document.querySelector('.button--playmarket');
+        
+        appStoreButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Перенаправление в App Store
+            window.open('https://www.apple.com/app-store/', '_blank');
+        });
+        
+        playMarketButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Перенаправление в Google Play
+            window.open('https://play.google.com/store', '_blank');
+        });
+        
+        // Закрытие модального окна
+        this.closeBtn.addEventListener('click', () => this.close());
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) this.close();
+        });
+        
+        // Закрытие по Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('modal--active')) {
+                this.close();
+            }
+        });
+    }
+    
+    open() {
+        document.body.style.overflow = 'hidden';
+        this.modal.classList.add('modal--active');
+    }
+    
+    close() {
+        document.body.style.overflow = '';
+        this.modal.classList.remove('modal--active');
+    }
+}
+
+// Инициализация модального окна при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    new DownloadModal();
+});
+
+// Остальной код для аккордеонов, карточек преимуществ и т.д.
+document.addEventListener('DOMContentLoaded', function() {
+    // Аккордеон
+    const accordionItems = document.querySelectorAll('.accordion__item');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion__header');
+        const content = item.querySelector('.accordion__content');
+        
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Закрываем все элементы
+            accordionItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Открываем текущий, если он был закрыт
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // Карточки преимуществ
+    const advantageCards = document.querySelectorAll('.advantage-card__inner');
+    
+    advantageCards.forEach(card => {
+        const button = card.querySelector('.advantage-card__button');
+        const closeBtn = card.querySelector('.advantage-card__close');
+        
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            card.classList.add('active');
+        });
+        
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            card.classList.remove('active');
+        });
+        
+        // Закрытие при клике вне карточки
+        document.addEventListener('click', (e) => {
+            if (!card.contains(e.target)) {
+                card.classList.remove('active');
+            }
+        });
+    });
+    
+    // Бургер-меню
+    const burgerMenu = document.querySelector('.burger-menu');
+    const nav = document.querySelector('.nav');
+    
+    if (burgerMenu && nav) {
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('burger-menu--active');
+            nav.classList.toggle('nav--active');
+            document.body.classList.toggle('no-scroll');
+        });
+    }
+});
+        
 
 // Анимация карточек 
 document.addEventListener('DOMContentLoaded', function() {
