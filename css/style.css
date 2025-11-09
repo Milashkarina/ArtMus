@@ -28,6 +28,28 @@ body {
     margin: 0 auto;
 }
 
+/* Плавные переходы для размеров и отступов */
+.header,
+.footer,
+.hero,
+.advantages,
+.about-app,
+.slider-section,
+.contacts,
+.hero__title,
+.hero__text,
+.hero__img,
+.advantages__title,
+.about-app__title,
+.contacts__title,
+.advantage-card,
+.accordion__item,
+.usage-step,
+.download-block,
+.slider__container {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 /* Шрифты */
 @font-face {
     font-family: "Affect";
@@ -220,6 +242,7 @@ body {
     background: #3D0590;
     transform: translateY(-0.125rem);
 }
+
 /* Модальное окно скачивания */
 .modal {
     position: fixed;
@@ -357,49 +380,6 @@ body {
     color: #666;
 }
 
-/* Адаптивность для модального окна */
-@media (max-width: 768px) {
-    .modal__content {
-        padding: 2rem 1.5rem;
-        margin: 1rem;
-    }
-    
-    .modal__title {
-        font-size: 1.5rem;
-    }
-    
-    .modal__subtitle {
-        font-size: 1rem;
-    }
-    
-    .modal__button {
-        padding: 1rem 1.2rem;
-    }
-    
-    .modal__button-icon {
-        width: 2rem;
-        height: 2rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .modal__content {
-        padding: 1.5rem 1rem;
-    }
-    
-    .modal__title {
-        font-size: 1.3rem;
-    }
-    
-    .modal__subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .modal__buttons {
-        gap: 0.8rem;
-    }
-}
 /* Блок преимуществ */
 .advantages {
     margin: 0 7.5rem 5.25rem 7.5rem;
@@ -583,31 +563,6 @@ body {
     margin-top: 1.1rem;
     visibility: hidden;
 }
-    
-
-
-/* Для мобильной версии */
-@media (max-width: 768px) {
-    .advantage-card__text {
-        padding-left: 0.5rem !important;
-    }
-    
-    .advantage-card__icon {
-        margin-left: 0 !important;
-        margin-right: 1rem !important;
-    }
-}
-
-@media (max-width: 360px) {
-    .advantage-card__text {
-        padding-left: 0.5rem !important;
-    }
-    
-    .advantage-card__icon {
-        margin-left: 0.5rem !important;
-        margin-right: 0.5rem !important;
-    }
-}
 
 .advantage-card__close {
     position: absolute;
@@ -650,7 +605,6 @@ body {
         opacity: 0;
         transform: translateY(-1rem);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -662,7 +616,6 @@ body {
         opacity: 0;
         transform: translateY(1.25rem);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -906,33 +859,6 @@ body {
     height: 1.5rem;
     flex-shrink: 0;
 }
-/* Адаптивность для кнопок с иконками */
-@media (max-width: 768px) {
-    .button--appstore,
-    .button--playmarket {
-        padding: 0.7rem 1.2rem;
-        gap: 0.6rem;
-    }
-    
-    .button__icon {
-        width: 1.3rem;
-        height: 1.3rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .button--appstore,
-    .button--playmarket {
-        padding: 0.8rem 1rem;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .button__icon {
-        width: 1.2rem;
-        height: 1.2rem;
-    }
-}
 
 .download-block__image {
     flex: 1;
@@ -947,7 +873,7 @@ body {
     max-width: 100%;
 }
 
-
+/* Стили для слайдера с корректным отображением картинок */
 .slider-section {
     margin: 0 7.5rem 5.25rem 7.5rem;
 }
@@ -990,10 +916,19 @@ body {
     text-align: center;
     padding: 2rem;
     max-width: 80%;
+    width: 100%;
 }
-.slider__button--prev{
-        transform: translateY(-50%) rotate(180deg);
-    }
+
+/* Исправленные стили для картинок слайдера */
+.slider__bg_1,
+.slider__bg_2,
+.slider__bg_3,
+.slider__bg_4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
 .slider__dots {
     position: absolute;
@@ -1031,8 +966,8 @@ body {
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.8);
     border: none;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -1050,16 +985,18 @@ body {
 
 .slider__button--prev {
     left: 1rem;
-
     transform: translateY(-50%) rotate(180deg);
 }
 
 .slider__button--next {
     right: 1rem;
 }
+
 .slider__button--prev img,
 .slider__button--next img {
-    transform: none; 
+    width: 1.8rem;
+    height: 1.8rem;
+    transform: none;
 }
 
 /* БЛОК КОНТАКТОВ */
@@ -1205,8 +1142,182 @@ body {
     margin: 7rem 7.5rem 0 7.5rem;
     padding: 1rem 0;
 }
+
+/* УЛУЧШЕННЫЕ ПЛАВНЫЕ ПЕРЕХОДЫ БЕЗ ИЗМЕНЕНИЯ РАСПОЛОЖЕНИЯ */
+
+/* Промежуточные breakpoints для плавности */
+@media (max-width: 1400px) {
+    html {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 1.15rem;
+    }
+}
+
 /* Адаптивность для 1280px */
 @media (max-width: 1280px) {
+    .header,
+    .footer {
+        margin: 0 5rem;
+    }
+
+    .hero {
+        margin: 2.5rem 5rem 4.5rem 5rem;
+        height: 25rem;
+        padding: 0 3.5rem;
+    }
+
+    .hero__title {
+        font-size: 5rem;
+    }
+
+    .hero__text {
+        font-size: 1.4rem;
+    }
+
+    .hero__img {
+        width: 24rem;
+    }
+
+    .advantages,
+    .about-app,
+    .slider-section {
+        margin: 0 5rem 4.5rem 5rem;
+    }
+
+    .advantages__title,
+    .about-app__title {
+        font-size: 2.4rem;
+    }
+
+    .advantages__row {
+        gap: 0.9rem;
+    }
+
+    .advantage-card {
+        width: 13.5rem;
+        height: 11.5rem;
+    }
+
+    .advantage-card__image {
+        width: 6.2rem;
+        height: 6.2rem;
+    }
+
+    .advantages__text--large {
+        width: 28rem;
+        height: 11.5rem;
+    }
+
+    .advantages__text--small {
+        width: 16.5rem;
+        height: 11.5rem;
+    }
+
+    .about-app__subtitle {
+        font-size: 1.8rem;
+    }
+
+    .accordion {
+        width: 55rem;
+    }
+
+    .accordion__item {
+        width: 40rem;
+    }
+
+    .accordion__item:nth-child(1),
+    .accordion__item:nth-child(2),
+    .accordion__item:nth-child(3) {
+        margin-left: 15rem;
+    }
+
+    .accordion__item:nth-child(4),
+    .accordion__item:nth-child(5),
+    .accordion__item:nth-child(6) {
+        margin-right: 15rem;
+    }
+
+    .usage-step {
+        min-height: 110px;
+        padding: 1.3rem;
+    }
+
+    .usage-step__number {
+        font-size: 2rem;
+    }
+
+    .usage-step__text {
+        font-size: 1rem;
+    }
+
+    .download-block {
+        padding: 1.8rem;
+    }
+
+    .download-block__text {
+        font-size: 1.1rem;
+    }
+
+    .button--appstore,
+    .button--playmarket {
+        width: 11rem;
+        height: 2.8rem;
+        font-size: 0.85rem;
+    }
+
+    .download-block__img {
+        width: 16rem;
+    }
+
+    .slider__container {
+        height: 28rem;
+    }
+
+    
+    .slider__button--prev img,
+    .slider__button--next img {
+        width: 1.8rem;
+        height: 1.8rem;
+        transform: none;
+    }
+
+    .contacts {
+        margin: 0 5rem 2rem 5rem;
+    }
+
+    .contacts__content {
+        gap: 2.5rem;
+    }
+
+    .contacts__form {
+        padding: 2.2rem;
+        max-width: 24rem;
+    }
+
+    .contacts__info {
+        padding: 2.2rem;
+    }
+
+    .contacts__text--large {
+        font-size: 1.4rem;
+    }
+
+    .contacts__text--small {
+        font-size: 0.95rem;
+    }
+}
+
+/* Адаптивность для 1024px */
+@media (max-width: 1024px) {
+    html {
+        font-size: 1.1rem;
+    }
+
     .header,
     .footer {
         margin: 0 4rem;
@@ -1241,143 +1352,81 @@ body {
         font-size: 2.2rem;
     }
 
-    .advantages__row {
-        gap: 0.8rem;
-    }
-
     .advantage-card {
         width: 13rem;
         height: 11rem;
     }
 
     .advantage-card__image {
-        width: 6rem;
-        height: 6rem;
-    }
-
-    .advantage-card__text {
-        font-size: 0.8rem;
+        width: 5.8rem;
+        height: 5.8rem;
     }
 
     .advantages__text--large {
-        width: 30rem;
+        width: 26rem;
         height: 11rem;
     }
 
     .advantages__text--small {
-        width: 15rem;
+        width: 15.5rem;
         height: 11rem;
     }
 
-    .advantages__text-content {
-        font-size: 0.9rem;
+    .slider__container {
+        height: 26rem;
     }
 
-    .advantages__text--large .advantages__text-content {
-        padding-top: 6rem;
+    .slider__button--prev img,
+    .slider__button--next img {
+        width: 1.8rem;
+        height: 1.8rem;
+        transform: none;
+    }
+}
+
+/* Адаптивность для 900px */
+@media (max-width: 900px) {
+    html {
+        font-size: 1.05rem;
     }
 
-    .advantages__text--small .advantages__text-content {
-        padding-top: 3.5rem;
+    .header,
+    .footer {
+        margin: 0 3rem;
     }
 
-    .about-app__subtitle {
-        font-size: 1.7rem;
+    .hero {
+        margin: 2rem 3rem 3.5rem 3rem;
+        height: 22rem;
+        padding: 0 2.5rem;
     }
 
-    .accordion {
-        width: 100%;
-        max-width: 55rem;
+    .hero__title {
+        font-size: 4rem;
     }
 
-    .accordion__item {
-        width: 38rem;
+    .hero__img {
+        width: 20rem;
     }
 
-    .accordion__item:nth-child(1),
-    .accordion__item:nth-child(2),
-    .accordion__item:nth-child(3) {
-        margin-left: 18rem;
+    .advantages,
+    .about-app,
+    .slider-section {
+        margin: 0 3rem 3.5rem 3rem;
     }
 
-    .accordion__item:nth-child(4),
-    .accordion__item:nth-child(5),
-    .accordion__item:nth-child(6) {
-        margin-right: 15rem;
-    }
-
-    .accordion__title {
-        font-size: 1rem;
-    }
-
-    .accordion__content p {
-        font-size: 0.9rem;
-        padding: 1.2rem 2rem;
-    }
-
-    .usage-steps {
-        gap: 0.8rem;
-    }
-
-    .usage-step {
-        min-height: 110px;
-        padding: 1.2rem;
-    }
-
-    .usage-step__number {
+    .advantages__title,
+    .about-app__title {
         font-size: 2rem;
     }
 
-    .usage-step__text {
-        font-size: 1rem;
-    }
-
-    .download-block {
-        padding: 1.5rem;
-    }
-
-    .download-block__text {
-        font-size: 1.1rem;
-    }
-
-    .button--appstore,
-    .button--playmarket {
-        width: 11rem;
-        height: 2.8rem;
-        font-size: 0.85rem;
-    }
-
-    .download-block__img {
-        width: 16rem;
+    .advantage-card {
+        width: 12rem;
+        height: 10rem;
     }
 
     .slider__container {
-        height: 28rem;
-    }
-
-    .contacts {
-        margin: 0 4rem 2rem 4rem;
-    }
-
-    .contacts__content {
-        gap: 2rem;
-    }
-
-    .contacts__form {
-        padding: 2rem;
-        max-width: 24rem;
-    }
-
-    .contacts__info {
-        padding: 2rem;
-    }
-
-    .contacts__text--large {
-        font-size: 1.3rem;
-    }
-
-    .contacts__text--small {
-        font-size: 0.9rem;
+        height: 24rem;
     }
 }
 
@@ -1414,7 +1463,7 @@ body {
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
-        transition: right 0.3s ease;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
         display: flex;
         align-items: center;
@@ -1441,7 +1490,7 @@ body {
         border-bottom: 1px solid #f0f0f0;
     }
 
-    /* Главный блок */
+    /* Главный блок - расположение сохраняется, меняются только размеры */
     .hero {
         margin: 1.5rem 1.5rem 3rem 1.5rem;
         padding: 2.5rem 2rem;
@@ -1465,19 +1514,20 @@ body {
     }
 
     .hero__title {
-        font-size: 3rem;
-        margin-left: 7rem;
+        font-size: 3.5rem;
+        margin-left: 3rem;
         text-align: left;
         margin-bottom: 1rem;
         line-height: 1.1;
     }
 
     .hero__text {
-        font-size: 1.3rem;
-         margin-left: 7rem;
+        font-size: 1.4rem;
+        margin-left: 3rem;
         text-align: left;
         margin-bottom: 1.5rem;
         line-height: 1.4;
+        
     }
 
     .hero__img {
@@ -1489,7 +1539,7 @@ body {
     .hero__social {
         justify-content: left;
         margin: 1.5rem 0;
-        margin-left: 7rem;
+        margin-left: 3rem;
     }
 
     .social-link__icon {
@@ -1499,7 +1549,7 @@ body {
 
     .button--download {
         width: 100%;
-        max-width: 27rem;
+        max-width: 35rem;
         font-size: 1.3rem;
         height: 3.2rem;
         margin: 1rem auto 0;
@@ -1578,9 +1628,9 @@ body {
         padding: 1.5rem;
     }
 
-       .advantage-card__info p {
-        font-size: 1rem; 
-        line-height: 1.4; 
+    .advantage-card__info p {
+        font-size: 1rem;
+        line-height: 1.4;
         margin-bottom: 2rem;
     }
 
@@ -1713,6 +1763,10 @@ body {
     }
 
     /* Слайдер */
+    .slider-section {
+        margin: 0 1.5rem 3rem 1.5rem;
+    }
+
     .slider__container {
         height: 25rem;
     }
@@ -1726,6 +1780,13 @@ body {
         padding: 1.5rem;
         max-width: 90%;
     }
+
+    .slider__button--prev img,
+    .slider__button--next img {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+    
 
     /* Контакты */
     .contacts {
@@ -1804,91 +1865,67 @@ body {
     }
 }
 
-/* Дополнительные улучшения для планшетов в портретной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    .hero {
-        height: 22rem;
-        padding: 0 3rem;
-    }
-    
-    .hero__title {
-        font-size: 4rem;
-    }
-    
-    .hero__img {
-        width: 20rem;
-    }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
-    }
-    
-    .advantages__text--large,
-    .advantages__text--small {
-        width: 100%;
-    }
-}
- 
-/* Улучшение читаемости на мобильных устройствах */
-@media (max-width: 768px) {
+/* Адаптивность для 480px */
+@media (max-width: 480px) {
     html {
-        font-size: 16px;
+        font-size: 15px;
     }
-    
-    body {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
-}
 
-/* Оптимизация для планшетов в альбомной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    .hero {
-        height: 20rem;
+    .hero__title {
+        font-size: 2.8rem;
+        margin-left: 4rem;
     }
-    
+
+    .hero__text {
+        font-size: 1.2rem;
+        margin-left: 4rem;
+    }
+
+    .hero__social {
+        margin-left: 4rem;
+    }
+
     .hero__img {
         width: 18rem;
     }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: center;
+
+    .slider__container {
+        height: 22rem;
     }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
+
+    .slider__button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .slider__button--prev img,
+    .slider__button--next img {
+        width: 1.2rem;
+        height: 1.2rem;
     }
 }
-/* мобильная версия */
+
+/* мобильная версия 360px */
 @media (max-width: 360px) {
     html {
         font-size: 14px;
     }
 
-    /*Бургер-меню  */
-   .burger-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 1.9rem;
-    height: 1.5rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-    position: absolute;
-    right: 1rem;
-    align-items: stretch; 
-}
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 1.9rem;
+        height: 1.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        position: absolute;
+        right: 1rem;
+        align-items: stretch;
+    }
 
     .header {
         justify-content: flex-start;
@@ -1958,7 +1995,7 @@ body {
         gap: 1rem;
     }
 
-   /* Главный блок*/
+    /* Главный блок*/
     .hero {
         margin: 1rem 1rem 2rem 1rem;
         padding: 1rem 1rem;
@@ -1971,24 +2008,23 @@ body {
 
     .hero__content {
         order: 1;
-        margin-top:1.5rem;
+        margin-top: 1.5rem;
         width: 100%;
         margin-bottom: 2rem;
-        padding: 0 !important; /* Важно: переопределяем все padding */
+        padding: 0 !important;
         text-align: left;
-        margin-left: 0 !important; /* Убираем левый отступ */
-        margin-right: 0 !important; /* Убираем правый отступ */
-        
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .hero__title {
         font-size: 3.5rem;
-        text-align: left; 
+        text-align: left;
         margin-bottom: 0.4rem;
         line-height: 1.1;
         color: #004A7A;
-        padding: 0 !important; 
-        margin-left: 0.5rem; 
+        padding: 0 !important;
+        margin-left: 0.5rem;
         width: 100%;
     }
 
@@ -1999,7 +2035,7 @@ body {
         margin-bottom: 2rem;
         line-height: 1.4;
         color: #222;
-        padding: 0 !important; 
+        padding: 0 !important;
         width: 100%;
     }
 
@@ -2017,8 +2053,8 @@ body {
     }
 
     .hero__social {
-        justify-content: flex-start; 
-        margin-left: 0.5rem; 
+        justify-content: flex-start;
+        margin-left: 0.5rem;
         gap: 0.8rem;
     }
 
@@ -2260,7 +2296,7 @@ body {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
-        max-width: 100%; 
+        max-width: 100%;
         box-sizing: border-box;
         align-items: stretch;
         margin-left: 0;
@@ -2276,7 +2312,6 @@ body {
         background: #004A7A;
         display: flex;
         gap: 1rem;
-        
     }
 
     .usage-step__bg {
@@ -2355,9 +2390,9 @@ body {
         width: 15.625rem;
         height: auto;
         max-width: 100%;
-
     }
 
+    /* Слайдер - исправленное отображение картинок и убраны стрелочки */
     .slider-section {
         margin: 0 1rem 3rem 1rem;
     }
@@ -2368,22 +2403,34 @@ body {
         background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
     }
 
+    /* Скрываем стрелочки на мобильных */
     .slider__button {
-        width: 2.2rem;
-        height: 2.2rem;
-    }
-    .slider__button--prev{
-        transform: translateY(-50%) rotate(180deg);
+        display: none;
     }
 
     .slider__content {
         padding: 1rem;
-        max-width: 90%;
+        max-width: 95%;
+    }
+
+    .slider__dots {
+        bottom: 0.8rem;
     }
 
     .slider__dot {
         width: 0.6rem;
         height: 0.6rem;
+    }
+
+    /* Убеждаемся, что картинки правильно отображаются */
+    .slider__bg_1,
+    .slider__bg_2,
+    .slider__bg_3,
+    .slider__bg_4 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .contacts__content {
@@ -2471,7 +2518,6 @@ body {
     .contacts__social .social-link__icon {
         width: 2.8rem;
         height: 2.8rem;
-        
     }
 
     .footer {
@@ -2491,6 +2537,169 @@ body {
     .footer .nav__link {
         font-size: 0.95rem;
         padding: 0.5rem;
+    }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal__content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal__title {
+        font-size: 1.5rem;
+    }
+    
+    .modal__subtitle {
+        font-size: 1rem;
+    }
+    
+    .modal__button {
+        padding: 1rem 1.2rem;
+    }
+    
+    .modal__button-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal__content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .modal__title {
+        font-size: 1.3rem;
+    }
+    
+    .modal__subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal__buttons {
+        gap: 0.8rem;
+    }
+}
+
+/* Адаптивность для кнопок с иконками */
+@media (max-width: 768px) {
+    .button--appstore,
+    .button--playmarket {
+        padding: 0.7rem 1.2rem;
+        gap: 0.6rem;
+    }
+    
+    .button__icon {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .button--appstore,
+    .button--playmarket {
+        padding: 0.8rem 1rem;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .button__icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+    .advantage-card__text {
+        padding-left: 0.5rem !important;
+    }
+    
+    .advantage-card__icon {
+        margin-left: 0 !important;
+        margin-right: 1rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .advantage-card__text {
+        padding-left: 0.5rem !important;
+    }
+    
+    .advantage-card__icon {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+}
+
+/* Дополнительные улучшения для планшетов в портретной ориентации */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero {
+        height: 22rem;
+        padding: 0 3rem;
+    }
+    
+    .hero__title {
+        font-size: 4rem;
+    }
+    
+    .hero__img {
+        width: 20rem;
+    }
+    
+    .advantages__row {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .advantage-card {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+    
+    .advantages__text--large,
+    .advantages__text--small {
+        width: 100%;
+    }
+
+    .slider__container {
+        height: 22rem;
+    }
+}
+
+/* Оптимизация для планшетов в альбомной ориентации */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        height: 20rem;
+    }
+    
+    .hero__img {
+        width: 18rem;
+    }
+    
+    .advantages__row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .advantage-card {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+
+    .slider__container {
+        height: 20rem;
+    }
+}
+
+/* Улучшение читаемости на мобильных устройствах */
+@media (max-width: 768px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
     }
 }
 
