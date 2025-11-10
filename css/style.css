@@ -107,6 +107,7 @@ body {
 
 .nav__list {
     display: flex;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -131,7 +132,7 @@ body {
     color: #4F07B6;
 }
 
-/* Бургер-меню */
+/* Бургер-меню с анимацией */
 .burger-menu {
     display: none;
     flex-direction: column;
@@ -150,11 +151,151 @@ body {
 .burger-menu__line {
     display: block;
     height: 3px;
-    width: 100%;
     background-color: #222;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
+}
+
+/* Анимация при активном состоянии */
+.burger-menu--active .burger-menu__line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu--active .burger-menu__line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.burger-menu--active .burger-menu__line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Плавное появление/исчезновение средний линии */
+.burger-menu__line:nth-child(2) {
+    transition: all 0.2s ease;
+}
+
+/* Эффект при наведении */
+.burger-menu:hover .burger-menu__line {
+    background-color: #4F07B6;
+}
+
+.burger-menu--active:hover .burger-menu__line {
+    background-color: #4F07B6;
+}
+
+/* Адаптивность для бургер-меню */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav--active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 0 2rem;
+        margin-left: 2rem;
+    }
+
+    .nav__link {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        color: #222;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    .nav__link:hover {
+        color: #4F07B6;
+        transform: translateX(10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .burger-menu {
+        width: 25px;
+        height: 18px;
+        right: 0.8rem;
+    }
+    
+    .burger-menu--active .burger-menu__line:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+    
+    .burger-menu--active .burger-menu__line:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+    
+    .nav__link {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav__link,
+    .nav__link:hover,
+    .nav__link:focus,
+    .nav__link:active {
+        border-bottom: none !important;
+        text-decoration: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+}
+@media (max-width: 360px) {
+    .burger-menu {
+        width: 22px;
+        height: 16px;
+        right: 0.5rem;
+    }
+    
+    .burger-menu__line {
+        height: 2.5px;
+    }
+    
+    .burger-menu--active .burger-menu__line:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+    }
+    
+    .burger-menu--active .burger-menu__line:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+    
+    .nav__list {
+        gap: 1.5rem;
+        margin-left: 1rem;
+    }
+    
+    .nav__link {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+    }
 }
 
 /* Главный блок */
@@ -434,7 +575,7 @@ body {
     padding-top: 4rem;
 }
 
-/* КАРТОЧКИ ПРЕИМУЩЕСТВ - КОМПЬЮТЕРНАЯ ВЕРСИЯ */
+/* Карточки преимуществ*/
 .advantage-card {
     width: 14.5rem;
     height: 12rem;
@@ -802,17 +943,18 @@ body {
 /* Блок скачивания*/
 .download-block {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     background: linear-gradient(135deg, #9FCBCE 0%, rgba(159, 203, 206, 0.9) 100%);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 0 auto;
 }
 
 .download-block__content {
     flex: 1;
     text-align: left;
+    margin-left: 1.5rem;
 }
 
 .download-block__text {
@@ -854,7 +996,8 @@ body {
     transform: translateY(-0.125rem);
     box-shadow: 0 4px 12px rgba(79, 7, 182, 0.3);
 }
-.button__icon {
+.button__icon_appstore,
+.button__icon_playmarket {
     width: 1.5rem;
     height: 1.5rem;
     flex-shrink: 0;
@@ -873,7 +1016,7 @@ body {
     max-width: 100%;
 }
 
-/* Стили для слайдера с корректным отображением картинок */
+
 .slider-section {
     margin: 0 7.5rem 5.25rem 7.5rem;
 }
@@ -919,7 +1062,7 @@ body {
     width: 100%;
 }
 
-/* Исправленные стили для картинок слайдера */
+
 .slider__bg_1,
 .slider__bg_2,
 .slider__bg_3,
@@ -999,7 +1142,7 @@ body {
     transform: none;
 }
 
-/* БЛОК КОНТАКТОВ */
+/* Блок контактов */
 .contacts {
     margin: 0 7.5rem 2rem 7.5rem;
 }
@@ -1143,19 +1286,18 @@ body {
     padding: 1rem 0;
 }
 
-/* УЛУЧШЕННЫЕ ПЛАВНЫЕ ПЕРЕХОДЫ БЕЗ ИЗМЕНЕНИЯ РАСПОЛОЖЕНИЯ */
-
 /* Промежуточные breakpoints для плавности */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
     html {
         font-size: 1.2rem;
     }
-}
 
-@media (max-width: 1200px) {
-    html {
-        font-size: 1.15rem;
-    }
+    .accordion__item:nth-child(1),
+    .accordion__item:nth-child(2),
+    .accordion__item:nth-child(3) {
+    margin-left: 16.8rem;
+    margin-right: 0;
+}
 }
 
 /* Адаптивность для 1280px */
@@ -1166,7 +1308,6 @@ body {
        
     }
     
-
     .hero {
         margin: 2.5rem 5rem 4.5rem 5rem;
         height: 25rem;
@@ -1235,7 +1376,7 @@ body {
     .accordion__item:nth-child(1),
     .accordion__item:nth-child(2),
     .accordion__item:nth-child(3) {
-        margin-left: 20rem;
+        margin-left: 16.5rem;
     }
 
     .accordion__item:nth-child(4),
@@ -1314,6 +1455,13 @@ body {
     }
 }
 
+@media (max-width: 1200px) {
+    html {
+        font-size: 1.15rem;
+    }
+}
+
+
 /* Адаптивность для 1024px */
 @media (max-width: 1024px) {
     html {
@@ -1322,17 +1470,17 @@ body {
 
     .header,
     .footer {
-        margin: 0 4rem;
+        margin: 0 3rem;
     }
 
     .hero {
         margin: 2rem 4rem 4rem 4rem;
-        height: 24rem;
+        height: 26.5rem;
         padding: 0 3rem;
     }
 
     .hero__title {
-        font-size: 4.5rem;
+        font-size: 3rem;
     }
 
     .hero__text {
@@ -1340,7 +1488,8 @@ body {
     }
 
     .hero__img {
-        width: 22rem;
+        width: 25rem;
+        margin-left: 1.2rem;
     }
 
     .advantages,
@@ -1374,8 +1523,37 @@ body {
         height: 11rem;
     }
 
+    .accordion__item:nth-child(1),
+    .accordion__item:nth-child(2),
+    .accordion__item:nth-child(3) {
+        margin-left: 10rem;
+    }
+
+    .usage-steps {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+    }
+
+    .usage-step {
+        width: 16rem;
+        padding: 1rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .button__icon_appstore {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .button__icon_playmarket {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
     .slider__container {
-        height: 26rem;
+        height: 32rem;
     }
 
     .slider__button--prev img,
@@ -1384,6 +1562,23 @@ body {
         height: 1.8rem;
         transform: none;
     }
+    .slider__content {
+        padding: 1rem;
+        max-width: 60%;
+    }
+
+    .contacts__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: #004A7A solid;
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    min-height: 26rem;
+    height: 27rem;
+    }
+
+   
 }
 
 /* Адаптивность для 900px */
@@ -1445,104 +1640,21 @@ body {
         padding: 1rem 0;
         flex-direction: row;
     }
-    /* Хедер с бургером  */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 1.9rem;
-        height: 1.5rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-        position: absolute;
-        right: 1rem;
-        align-items: stretch; 
-    }
-    
-
-    .nav--active {
-        right: 0;
-    }
-
-    .nav__list {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .nav__link {
-        font-size: 1.4rem;
-        padding: 1rem 2rem;
-        color: #222;
-        transition: all 0.3s ease;
-    }
-
-    .nav__link:hover {
-        color: #4F07B6;
-        transform: translateX(0.625rem);
-    }
-
-      .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: rotate(45deg) translate(0.375rem,0.375rem );
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.375rem, -0.375rem);
-    }
 
     .logo {
         font-size: 1.4rem;
         margin-right: auto;
     }
-      .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        transition: right 0.3s ease;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
-    .nav--active {
-        right: 0;
-    }
 
-    .nav__list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-        width: 100%;
-        padding: 0 2rem;
-    }
-
-    .nav__link {
-        font-size: 1.2rem;
-        padding: 0.8rem 1rem;
-        width: 100%;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    /* Главный блок - расположение сохраняется, меняются только размеры */
-    .hero {
+     .hero {
         margin: 1.5rem 1.5rem 3rem 1.5rem;
         padding: 2.5rem 2rem;
         flex-direction: column;
         height: auto;
-        text-align: center;
+        text-align: left;
         border-radius: 1rem;
+        background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
     }
 
     .hero__content {
@@ -1581,6 +1693,22 @@ body {
         height: auto;
     }
 
+    .button--download {
+        background: #4F07B6;
+        color: rgba(255, 255, 255, 0.9);
+        width: 35rem;
+        height: 2.5rem;
+        border-radius: 1.25rem;
+        font-family: "Affect", sans-serif;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all .3s ease;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 3.2rem;
+    }
     .hero__social {
         justify-content: left;
         margin: 1.5rem 0;
@@ -1591,15 +1719,6 @@ body {
         width: 3.2rem;
         height: 3.2rem;
     }
-
-    .button--download {
-        width: 100%;
-        max-width: 35rem;
-        font-size: 1.3rem;
-        height: 3.2rem;
-        margin: 1rem auto 0;
-    }
-
     /* Блок преимуществ */
     .advantages,
     .about-app,
@@ -1662,7 +1781,6 @@ body {
         height: 2.5rem;
     }
 
-    /* Текстовые блоки преимуществ */
     .advantages__text {
         width: 100% !important;
         height: 120px;
@@ -1737,39 +1855,24 @@ body {
         font-size: 0.95rem;
         line-height: 1.5;
     }
-
-    /* Блок как пользоваться */
-    .usage-steps {
-        flex-direction: column;
+   /* Блок скачать*/
+    .download-block {
+        width: 44.2rem;    
+        display: flex;
         gap: 1rem;
-    }
-
-    .usage-step {
-        min-height: 100px;
+        align-items: center;
+        background: linear-gradient(135deg, #9FCBCE 0%, rgba(159, 203, 206, 0.9) 100%);
+        border-radius: 1rem;
         padding: 1.5rem;
-        justify-content: flex-start;
-        text-align: left;
+        margin: 0 auto;
     }
 
-    .usage-step__number {
-        font-size: 2rem;
-        margin-right: 1.5rem;
-        flex-shrink: 0;
-    }
-
-    .usage-step__text {
-        font-size: 1.1rem;
-        line-height: 1.3;
-    }
-
-    /* Блок скачать */
     .download-block {
         flex-direction: column;
         gap: 2rem;
         padding: 2rem;
         text-align: center;
     }
-
     .download-block__content {
         order: 2;
         width: 100%;
@@ -1781,19 +1884,24 @@ body {
         justify-content: center;
     }
 
+    
+    .download-block__img {
+        width: 16rem;
+        height: auto;
+    }
+
     .download-block__text {
         font-size: 1.3rem;
         text-align: center;
         margin-bottom: 2rem;
         line-height: 1.4;
-    }
+    }    
 
     .download-buttons {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
     }
-
     .button--appstore,
     .button--playmarket {
         width: 100%;
@@ -1802,10 +1910,42 @@ body {
         font-size: 1rem;
     }
 
-    .download-block__img {
-        width: 16rem;
-        height: auto;
+    .button__icon_appstore {
+        width: 1.9rem;
+        height: 1.9rem;
+        margin-right: 1.3rem;
     }
+    .button__icon_playmarket {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    /* Блок как пользоваться */
+    .usage-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .usage-step {
+        min-height: 7rem;
+        width: 44.5rem;
+        padding: 1.5rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .usage-step__number {
+        font-size: 3rem;
+        margin-right: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .usage-step__text {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-right: 1rem;
+    }
+
 
     /* Слайдер */
     .slider-section {
@@ -1813,6 +1953,7 @@ body {
     }
 
     .slider__container {
+        width: 44.5rem;
         height: 25rem;
     }
 
@@ -1903,58 +2044,6 @@ body {
         font-size: 15px;
     }
 
-     /* Хедер с бургером  */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 1.9rem;
-        height: 1.5rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-        position: absolute;
-        right: 1rem;
-        align-items: stretch; 
-    }
-    
-
-    .nav--active {
-        right: 0;
-    }
-
-    .nav__list {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .nav__link {
-        font-size: 1.4rem;
-        padding: 1rem 2rem;
-        color: #222;
-        transition: all 0.3s ease;
-    }
-
-    .nav__link:hover {
-        color: #4F07B6;
-        transform: translateX(0625.rem);
-    }
-
-      .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: rotate(45deg) translate(0.375rem,0.375rem );
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.375rem, -0.375rem);
-    }
-
     .hero__title {
         font-size: 2.8rem;
         margin-left: 4rem;
@@ -1993,59 +2082,6 @@ body {
 @media (max-width: 360px) {
     html {
         font-size: 14px;
-    }
-
-     /* Хедер с бургером  */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 1.9rem;
-        height: 1.5rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-        position: absolute;
-        right: 1rem;
-        align-items: stretch; 
-    }
-    
-
-    .nav--active {
-        right: 0;
-    }
-
-    .nav__list {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .nav__link {
-        font-size: 1.4rem;
-        padding: 1rem 2rem;
-        color: #222;
-        transition: all 0.3s ease;
-    }
-
-    .nav__link:hover {
-        color: #4F07B6;
-        transform: translateX(0.7rem);
-    }
-
-      .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: rotate(45deg) translate(0.375rem,0.375rem );
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(2) {
-        opacity: 0;
-        
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.375rem, -0.375rem);
     }
     .header {
         justify-content: flex-start;
@@ -2330,7 +2366,6 @@ body {
         border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
-    /* Текстовые блоки преимуществ */
     .advantages__text {
         border-radius: 1rem;
         width: 100% !important;
@@ -2448,26 +2483,28 @@ body {
 
     /* Блок скачать*/
     .download-block {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
         flex-direction: column;
-        background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #9FCBCE 0%, rgba(159, 203, 206, 0.9) 100%);
+        border-radius: 1rem;
+        box-sizing: border-box;
     }
 
     .download-block__content {
         order: 2;
         width: 100%;
-        padding: 1rem 1rem;
-        text-align: left;
-        border-radius: 1rem;
-        position: relative;
-        min-height: auto;
+        margin-left: 0;
+        text-align: center;
     }
 
     .download-block__text {
-        position: static;
-        font-size: 1.2rem;
-        text-align: left;
-        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
         line-height: 1.4;
         color: #222;
     }
@@ -2475,44 +2512,101 @@ body {
     .download-buttons {
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
+        width: 100%;
     }
 
     .button--appstore,
     .button--playmarket {
-        position: static;
         width: 100%;
-        max-width: none;
+        max-width: 18rem;
         height: 3rem;
         font-size: 0.9rem;
         margin: 0;
-        border-radius: 1rem;
+        border-radius: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .button__icon_appstore {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .button__icon_playmarket {
+        width: 1.1rem;
+        height: 1.1rem;
     }
 
     .download-block__image {
         order: 1;
         width: 100%;
         display: flex;
-        justify-content: left;
+        justify-content: center;
+        align-items: center;
     }
 
     .download-block__img {
-        width: 15.625rem;
+        width: 14rem;
         height: auto;
         max-width: 100%;
     }
 
-    /* Слайдер - исправленное отображение картинок и убраны стрелочки */
+    /* Слайдер*/
     .slider-section {
-        margin: 0 1rem 3rem 1rem;
+        margin: 0 1rem 2rem 1rem;
     }
 
     .slider__container {
-        height: 200px;
+        width: 100%;
+        height: 16rem;
         border-radius: 0.8rem;
-        background: linear-gradient(180deg, #9FCBCE 0%, rgba(219, 223, 206, 0.988235) 100%);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slider__slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .slider__bg_1,
+    .slider__bg_2,
+    .slider__bg_3,
+    .slider__bg_4 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     /* Скрываем стрелочки на мобильных */
+    .slider__button {
+        display: none;
+    }
+
+    .slider__dots {
+        bottom: 0.5rem;
+        gap: 0.4rem;
+    }
+
+    .slider__dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: rgba(255, 255, 255, 0.6);
+        border: none;
+    }
+
+    .slider__dot--active {
+        background: #4F07B6;
+        transform: scale(1.1);
+    }
+    
     .slider__button {
         display: none;
     }
@@ -2530,14 +2624,12 @@ body {
         width: 0.6rem;
         height: 0.6rem;
     }
-
-    /* Убеждаемся, что картинки правильно отображаются */
     .slider__bg_1,
     .slider__bg_2,
     .slider__bg_3,
     .slider__bg_4 {
-        width: 100%;
-        height: 100%;
+        width: 105%;
+        height: 105%;
         object-fit: cover;
         object-position: center;
     }
@@ -2649,7 +2741,7 @@ body {
     }
 }
 
-/* Адаптивность для модального окна */
+/* Адаптивность для модального окна при нажатии на кнопку скачивания */
 @media (max-width: 768px) {
     .modal__content {
         padding: 2rem 1.5rem;
@@ -2701,7 +2793,8 @@ body {
         gap: 0.6rem;
     }
     
-    .button__icon {
+    .button__icon_appstore,
+    .button__icon_playmarket {
         width: 1.3rem;
         height: 1.3rem;
     }
@@ -2715,7 +2808,8 @@ body {
         font-size: 0.9rem;
     }
     
-    .button__icon {
+    .button__icon_appstore,
+    .button__icon_playmarket {
         width: 1.2rem;
         height: 1.2rem;
     }
@@ -2815,4 +2909,229 @@ body {
 /* Скрывать скролл при открытом меню */
 body.no-scroll {
     overflow: hidden;
+}
+/* Модальное окно успешной отправки формы */
+.modal-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+}
+
+.modal-success--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-success__content {
+    background: linear-gradient(135deg, #9FCBCE 0%, rgba(219, 223, 206, 0.95) 100%);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    max-width: 28rem;
+    width: 90%;
+    position: relative;
+    transform: scale(0.8) translateY(2rem);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.modal-success--active .modal-success__content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.modal-success__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: rgba(79, 7, 182, 0.1);
+    border: 2px solid rgba(79, 7, 182, 0.3);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    color: #4F07B6;
+    font-weight: bold;
+}
+
+.modal-success__close:hover {
+    background: rgba(79, 7, 182, 0.2);
+    border-color: rgba(79, 7, 182, 0.5);
+    transform: scale(1.1);
+}
+
+.modal-success__icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: #4F07B6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounceIn 0.6s ease;
+}
+
+.modal-success__icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: white;
+}
+
+.modal-success__title {
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #004A7A;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.modal-success__text {
+    font-family: "Affect", sans-serif;
+    font-size: 1.1rem;
+    color: #222;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.modal-success__button {
+    background: #4F07B6;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-family: "Affect", sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 12rem;
+    margin: 0 auto;
+}
+
+.modal-success__button:hover {
+    background: #3D0590;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 7, 182, 0.3);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-success__content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-success__text {
+        font-size: 1rem;
+    }
+    
+    .modal-success__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .modal-success__icon svg {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-success__content {
+        padding: 1.8rem 1.2rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-success__text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal-success__button {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        max-width: 10rem;
+    }
+    
+    .modal-success__close {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-success__content {
+        padding: 1.5rem 1rem;
+        border-radius: 1.2rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .modal-success__text {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .modal-success__icon {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-success__icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .modal-success__button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        max-width: 9rem;
+    }
 }
