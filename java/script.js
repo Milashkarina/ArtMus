@@ -82,12 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 // Модальное окно скачивания
-// Модальное окно скачивания
 class DownloadModal {
     constructor() {
         this.modal = document.getElementById('downloadModal');
         this.closeBtn = this.modal.querySelector('.modal__close');
-        // Только кнопка "СКАЧАТЬ" в геро-блоке открывает модальное окно
         this.downloadButton = document.querySelector('.button--download');
         
         this.init();
@@ -104,17 +102,21 @@ class DownloadModal {
         const appStoreButton = document.querySelector('.button--appstore');
         const playMarketButton = document.querySelector('.button--playmarket');
         
-        appStoreButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Перенаправление в App Store
-            window.open('https://www.apple.com/app-store/', '_blank');
-        });
+        if (appStoreButton) {
+            appStoreButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Перенаправление в App Store
+                window.open('https://www.apple.com/app-store/', '_blank');
+            });
+        }
         
-        playMarketButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Перенаправление в Google Play
-            window.open('https://play.google.com/store', '_blank');
-        });
+        if (playMarketButton) {
+            playMarketButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Перенаправление в Google Play
+                window.open('https://play.google.com/store', '_blank');
+            });
+        }
         
         // Закрытие модального окна
         this.closeBtn.addEventListener('click', () => this.close());
@@ -141,14 +143,8 @@ class DownloadModal {
     }
 }
 
-// Инициализация модального окна при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    new DownloadModal();
-});
-
-// Остальной код для аккордеонов, карточек преимуществ и т.д.
+// Аккордеон
 document.addEventListener('DOMContentLoaded', function() {
-    // Аккордеон
     const accordionItems = document.querySelectorAll('.accordion__item');
     
     accordionItems.forEach(item => {
@@ -169,47 +165,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Карточки преимуществ
-    const advantageCards = document.querySelectorAll('.advantage-card__inner');
-    
-    advantageCards.forEach(card => {
-        const button = card.querySelector('.advantage-card__button');
-        const closeBtn = card.querySelector('.advantage-card__close');
-        
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            card.classList.add('active');
-        });
-        
-        closeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            card.classList.remove('active');
-        });
-        
-        // Закрытие при клике вне карточки
-        document.addEventListener('click', (e) => {
-            if (!card.contains(e.target)) {
-                card.classList.remove('active');
-            }
-        });
-    });
-    
-    // Бургер-меню
-    const burgerMenu = document.querySelector('.burger-menu');
-    const nav = document.querySelector('.nav');
-    
-    if (burgerMenu && nav) {
-        burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('burger-menu--active');
-            nav.classList.toggle('nav--active');
-            document.body.classList.toggle('no-scroll');
-        });
-    }
 });
-        
 
-// Анимация карточек 
+// Карточки преимуществ
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.advantage-card__button');
     const closeButtons = document.querySelectorAll('.advantage-card__close');
@@ -260,68 +218,36 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     });
-    
+});
+
+// Плавная прокрутка для всех ссылок с якорями
+document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
-        });
-    });
-    
-    document.querySelectorAll('.advantage-card__info').forEach(info => {
-        info.addEventListener('click', function(e) {
-            e.stopPropagation();
         });
     });
 });
 
-// Анимация аккордеон
-document.addEventListener('DOMContentLoaded', function() {
-    const accordionItems = document.querySelectorAll('.accordion__item');
-    
-    accordionItems.forEach(item => {
-        const accordionToggle = item.querySelector('.accordion__toggle');
-        const accordionHeader = item.querySelector('.accordion__header');
-        
-        function toggleAccordion() {
-            if (item.classList.contains('active')) {
-                item.classList.remove('active');
-            } else {
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                item.classList.add('active');
-            }
-        }
-        
-        if (accordionToggle) {
-            accordionToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleAccordion();
-            });
-        }
-        
-        if (accordionHeader) {
-            accordionHeader.addEventListener('click', function() {
-                toggleAccordion();
-            });
-        }
-    });
-});
-// Слайдер 
+// Слайдер
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slider__slide');
     const dots = document.querySelectorAll('.slider__dot');
     const prevBtn = document.querySelector('.slider__button--prev');
     const nextBtn = document.querySelector('.slider__button--next');
+    
+    if (slides.length === 0) return;
+    
     let currentSlide = 0;
     let slideInterval;
 
@@ -354,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Запуск автоматической смены слайдов
     function startSlideShow() {
-        slideInterval = setInterval(nextSlide, 5000); // Смена каждые 5 секунд
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
     // Остановка автоматической смены
@@ -363,17 +289,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Обработчики событий для кнопок
-    nextBtn.addEventListener('click', function() {
-        nextSlide();
-        stopSlideShow();
-        startSlideShow();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            nextSlide();
+            stopSlideShow();
+            startSlideShow();
+        });
+    }
 
-    prevBtn.addEventListener('click', function() {
-        prevSlide();
-        stopSlideShow();
-        startSlideShow();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            prevSlide();
+            stopSlideShow();
+            startSlideShow();
+        });
+    }
 
     // Обработчики для точек навигации
     dots.forEach((dot, index) => {
@@ -387,8 +317,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Пауза при наведении на слайдер
     const sliderContainer = document.querySelector('.slider__container');
-    sliderContainer.addEventListener('mouseenter', stopSlideShow);
-    sliderContainer.addEventListener('mouseleave', startSlideShow);
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopSlideShow);
+        sliderContainer.addEventListener('mouseleave', startSlideShow);
+    }
 
     // Запуск слайдера
     showSlide(currentSlide);
@@ -406,4 +338,9 @@ document.addEventListener('DOMContentLoaded', function() {
             startSlideShow();
         }
     });
+});
+
+// Инициализация модального окна
+document.addEventListener('DOMContentLoaded', () => {
+    new DownloadModal();
 });
