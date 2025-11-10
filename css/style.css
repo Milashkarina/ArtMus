@@ -129,12 +129,13 @@ body {
 }
 
 .nav__link:hover {
-    color: #4F07B6;
+    color: #222;
 }
 
 /* Бургер-меню с анимацией */
 .burger-menu {
     display: none;
+    position: fixed;
     flex-direction: column;
     justify-content: space-between;
     width: 1.875rem;
@@ -178,11 +179,11 @@ body {
 
 /* Эффект при наведении */
 .burger-menu:hover .burger-menu__line {
-    background-color: #4F07B6;
+    background-color: #222;
 }
 
 .burger-menu--active:hover .burger-menu__line {
-    background-color: #4F07B6;
+    background-color: #222;
 }
 
 /* Адаптивность для бургер-меню */
@@ -231,7 +232,7 @@ body {
     }
 
     .nav__link:hover {
-        color: #4F07B6;
+        color: #222;
         transform: translateX(0.625rem);
     }
 }
