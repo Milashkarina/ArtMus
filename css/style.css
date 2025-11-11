@@ -1098,24 +1098,24 @@ body {
 .button--download:hover,
 .button--download:focus {
     background: #3D0590;
-    transform: translateY(-0.125rem); /* Подъем кнопки */
+    transform: translateY(-0.125rem); 
 }
 
 .button--appstore:hover,
 .button--playmarket:hover {
     background: #3D0590;
-    transform: translateY(-0.125rem); /* Подъем кнопки */
+    transform: translateY(-0.125rem); 
     box-shadow: 0 4px 12px rgba(79, 7, 182, 0.3);
 }
 
 .button--secondary:hover {
         background: #5a6268;
-        transform: translateY(-0.125rem); /* Подъем кнопки */
+        transform: translateY(-0.125rem); 
 }
 
 .button--primary:hover {
         background: #3D0590;
-        transform: translateY(-0.125rem); /* Подъем кнопки */
+        transform: translateY(-0.125rem); 
     }
 
 .contacts__info {
@@ -1176,8 +1176,6 @@ body {
 
     
 }
-
-
 }
 
 /* Адаптивность для 1280px */
@@ -1533,17 +1531,47 @@ body {
         transform-origin: center;
     }
 
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 1.563rem;
+        height: 1.563rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        position: absolute;
+        right: 1rem;
+    }
+
+    .burger-menu__line {
+        display: block;
+        height: 0.125rem;
+        width: 100%;
+        background-color: #222;
+        border-radius: 0.188rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+        position: absolute;
+    }
+
     .burger-menu__line:nth-child(1) {
         transform: translateY(-0.375rem);
+    }
+
+    .burger-menu__line:nth-child(2) {
+        transform: none;
     }
 
     .burger-menu__line:nth-child(3) {
         transform: translateY(0.375rem);
     }
 
-    
     .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: translateY(0) rotate(45deg);
+        transform: rotate(45deg);
     }
 
     .burger-menu--active .burger-menu__line:nth-child(2) {
@@ -1552,7 +1580,7 @@ body {
     }
 
     .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: translateY(0) rotate(-45deg);
+        transform: rotate(-45deg);
     }
 
     .logo {
@@ -2008,15 +2036,6 @@ body {
         width: 3rem;
         height: 3rem;
     }
-
-    /* Футер */
-    .footer {
-        margin: 3rem 1.5rem 1rem 1.5rem;
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-        padding: 1.5rem 0;
-    }
 }
 
 /* Адаптивность для 480px */
@@ -2171,8 +2190,39 @@ body {
         transform: translateX(0.438rem);
     }
 
+    .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1.563rem;
+    height: 1.563rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: absolute;
+    right: 1rem;
+}
+
+    .burger-menu__line {
+        display: block;
+        height: 0.125rem;
+        width: 100%;
+        background-color: #222;
+        border-radius: 0.188rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+        position: absolute;
+    }
+
     .burger-menu__line:nth-child(1) {
         transform: translateY(-0.375rem);
+    }
+
+    .burger-menu__line:nth-child(2) {
+        transform: none;
     }
 
     .burger-menu__line:nth-child(3) {
@@ -2180,7 +2230,7 @@ body {
     }
 
     .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: translateY(0) rotate(45deg);
+        transform: rotate(45deg);
     }
 
     .burger-menu--active .burger-menu__line:nth-child(2) {
@@ -2189,7 +2239,8 @@ body {
     }
 
     .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: translateY(0) rotate(-45deg);
+        transform: rotate(-45deg);
+    }
     }
     .header {
         justify-content: flex-start;
@@ -2591,7 +2642,7 @@ body {
         color: rgba(255, 255, 255, 1);
     }
 
-    /* БЛОК СКАЧАТЬ - ИСПРАВЛЕННЫЙ */
+    /* Блок скачать */
     .download-block {
         flex-direction: column;
         gap: 1rem;
@@ -2602,7 +2653,7 @@ body {
         margin: 0 auto;
         width: 100%;
         max-width: none;
-    }
+}
 
     .download-block__content {
         flex: 1;
@@ -2674,7 +2725,6 @@ body {
         max-width: 100%;
     }
 
-    /* СЛАЙДЕР - ИСПРАВЛЕННЫЙ */
     .slider-section {
         margin: 0 1rem 3rem 1rem;
     }
@@ -2799,7 +2849,6 @@ body {
         transform: none;
     }
 
-    /* Скрываем стрелочки на мобильных 360px */
     .slider__button {
         display: none;
     }
@@ -2908,17 +2957,6 @@ body {
         width: 2.8rem;
         height: 2.8rem;
     }
-
-    .footer {
-        margin: 3rem 1rem 1rem 1rem;
-        text-align: left;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem 0;
-    }
-
-}
-
 /* Адаптивность для модального окна */
 @media (max-width: 768px) {
     .modal__content {
@@ -3049,7 +3087,7 @@ body {
     }
 }
 
-/* Оптимизация для планшетов в альбомной ориентации */
+
 @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
     .hero {
         height: 20rem;
@@ -3074,7 +3112,7 @@ body {
     }
 }
 
-/* Улучшение читаемости на мобильных устройствах */
+
 @media (max-width: 768px) {
     body {
         -webkit-text-size-adjust: 100%;
@@ -3082,7 +3120,6 @@ body {
     }
 }
 
-/* Скрывать скролл при открытом меню */
 body.no-scroll {
     overflow: hidden;
 }
