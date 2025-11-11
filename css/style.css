@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     height: auto;
     min-height: 100vh;
     overflow-x: hidden;
@@ -136,8 +136,8 @@ body {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 1.875rem;
+    height: 1.313rem;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -149,10 +149,10 @@ body {
 
 .burger-menu__line {
     display: block;
-    height: 3px;
+    height: 0.188rem;
     width: 100%;
     background-color: #222;
-    border-radius: 3px;
+    border-radius: 0.188rem;
     transition: all 0.3s ease;
     transform-origin: center;
 }
@@ -213,7 +213,7 @@ body {
 }
 
 .social-link:hover {
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .social-link__icon {
@@ -258,7 +258,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(0.5rem);
 }
 
 .modal--active {
@@ -276,8 +276,8 @@ body {
     transform: scale(0.8) translateY(2rem);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
+    border: 0.125rem solid rgba(255, 255, 255, 0.2);
 }
 
 .modal--active .modal__content {
@@ -290,7 +290,7 @@ body {
     top: 1rem;
     right: 1.2rem;
     background: rgba(79, 7, 182, 0.1);
-    border: 2px solid rgba(79, 7, 182, 0.3);
+    border: 0.125rem solid rgba(79, 7, 182, 0.3);
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -340,7 +340,7 @@ body {
     gap: 1rem;
     padding: 1.2rem 1.5rem;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid transparent;
+    border: 0.125rem solid transparent;
     border-radius: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -351,8 +351,8 @@ body {
 .modal__button:hover {
     background: rgba(255, 255, 255, 1);
     border-color: #4F07B6;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(79, 7, 182, 0.2);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.5rem 1.25rem rgba(79, 7, 182, 0.2);
 }
 
 .modal__button-icon {
@@ -419,7 +419,7 @@ body {
 }
 
 .advantages__text-content {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 1);
     font-family: "Affect", sans-serif;
     font-weight: 300;
     font-size: 1rem;
@@ -449,7 +449,7 @@ body {
     flex-direction: column;
     border-radius: 0.938rem;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
     cursor: pointer;
     background: #004A7A;
     padding: 1rem;
@@ -761,7 +761,7 @@ body {
 
 .usage-step {
     width: 100%;
-    min-height: 120px;
+    min-height: 7.5rem;
     padding: 1.5rem;
     border-radius: 1rem;
     text-align: left;
@@ -769,7 +769,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.938rem rgba(0, 0, 0, 0.1);
 }
 
 .usage-step__bg {
@@ -852,7 +852,7 @@ body {
 .button--playmarket:hover {
     background: #3D0590;
     transform: translateY(-0.125rem);
-    box-shadow: 0 4px 12px rgba(79, 7, 182, 0.3);
+    box-shadow: 0 0.25rem 0.75rem rgba(79, 7, 182, 0.3);
 }
 .button__icon {
     width: 1.5rem;
@@ -884,7 +884,7 @@ body {
     height: 31.563rem;
     border-radius: 0.9rem;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
 }
 
 .slider__track {
@@ -947,7 +947,7 @@ body {
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 0.125rem solid transparent;
 }
 
 .slider__dot--active {
@@ -975,12 +975,12 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     z-index: 10;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 .slider__button:hover {
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.25rem 0.938rem rgba(0, 0, 0, 0.2);
 }
 
 .slider__button--prev {
@@ -1047,7 +1047,7 @@ body {
     width: 100%;
     padding: 0.8rem 1rem;
     border-radius: 0.925rem;
-    border: 1px solid #ccc;
+    border: 0.063rem solid #ccc;
     font-family: "Affect", sans-serif;
     font-size: 0.9rem;
     background: rgba(255, 255, 255, 0.95);
@@ -1064,7 +1064,7 @@ body {
 .form__input:focus,
 .form__textarea:focus {
     border-color: #4F07B6;
-    box-shadow: 0 0 0 2px rgba(79, 7, 182, 0.1);
+    box-shadow: 0 0 0 0.125rem rgba(79, 7, 182, 0.1);
     background: rgba(255, 255, 255, 1);
 }
 
@@ -1243,7 +1243,7 @@ body {
     }
 
     .usage-step {
-        min-height: 110px;
+        min-height: 6.875rem;
         padding: 1.3rem;
     }
 
@@ -1472,7 +1472,7 @@ body {
 /* Адаптивность для 768px */
 @media (max-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .header,
@@ -1574,7 +1574,7 @@ body {
         width: 100%;
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(0.625rem);
         transition: right 0.3s ease;
         z-index: 1000;
         display: flex;
@@ -1607,7 +1607,7 @@ body {
 
     .nav__link:hover {
         color: #4F07B6;
-        transform: translateX(10px);
+        transform: translateX(0.625rem);
     }
 
    
@@ -1619,7 +1619,7 @@ body {
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(0.625rem);
         transition: right 0.3s ease;
         z-index: 1000;
         display: flex;
@@ -1730,7 +1730,7 @@ body {
 
     .advantage-card {
         width: 100%;
-        height: 140px;
+        height: 8.75rem;
         margin-bottom: 1rem;
     }
 
@@ -1773,7 +1773,7 @@ body {
 
     .advantages__text {
         width: 100% !important;
-        height: 120px;
+        height: 7.5rem;
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
@@ -2028,7 +2028,7 @@ body {
 /* Адаптивность для 480px */
 @media (max-width: 480px) {
         html {
-        font-size: 15px;
+        font-size: 0.9375rem;
     }
 
     .header,
@@ -2036,10 +2036,10 @@ body {
         margin: 0 1rem;
         padding: 1rem 0;
         height: auto;
-        flex-direction: row; /* Меняем на row вместо column */
+        flex-direction: row; 
         gap: 1rem;
-        justify-content: space-between; /* Добавляем выравнивание по краям */
-        align-items: center; /* Выравниваем по центру по вертикали */
+        justify-content: space-between; 
+        align-items: center; 
     }
 
     .burger-menu {
@@ -2047,15 +2047,15 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 25px;
-        height: 30px;
+        width: 1.563rem;
+        height: 1.875rem;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
         z-index: 1001;
-        position: relative; /* Меняем на relative вместо absolute */
-        right: 0; /* Убираем смещение */
+        position: relative; 
+        right: 0; 
     }
 
     .nav--active {
@@ -2105,16 +2105,16 @@ body {
     }
 
     .header {
-        justify-content: space-between; /* Выравниваем по краям */
+        justify-content: space-between; 
         position: relative;
         margin: 0 1rem;
     }
 
     .logo {
-        margin-right: 0; /* Убираем отступ */
-        text-align: left; /* Выравниваем текст логотипа слева */
-        width: auto; /* Убираем полную ширину */
-        font-size: 1.4rem; /* Сохраняем размер шрифта */
+        margin-right: 0; 
+        text-align: left; 
+        width: auto; 
+        font-size: 1.4rem; 
     }
 
     /* Главный блок*/
@@ -2261,7 +2261,7 @@ body {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.3;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         margin: 0;
         flex: 1;
         padding-left: 0.5rem;
@@ -2305,7 +2305,7 @@ body {
     .advantage-card__info p {
         font-size: 0.9rem;
         text-align: left;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         line-height: 1.4;
         margin-bottom: 2rem;
         padding-left: 0.5rem;
@@ -2316,7 +2316,7 @@ body {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         font-size: 1.2rem;
         width: 1.8rem;
         height: 1.8rem;
@@ -2346,7 +2346,7 @@ body {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.4;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         padding: 0;
         margin: 0;
     }
@@ -2621,7 +2621,7 @@ body {
 /* Адаптивность для 375px */
 @media (max-width: 375px) {
     html {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .header,
@@ -2731,7 +2731,7 @@ body {
 /* мобильная версия 360px */
 @media (max-width: 360px) {
     html {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .burger-menu {
@@ -2739,8 +2739,8 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 25px;
-        height: 30px;
+        width: 1.563rem;
+        height: 1.875rem;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -2773,12 +2773,13 @@ body {
         transition: all 0.3s ease;
     }
 
-    .burger-menu__line:nth-child(1) {
-        transform: translateY(-0.375rem);
+    .nav__link:hover {
+        color: #4F07B6;
+        transform: translateX(0.625rem);
     }
 
-    .burger-menu__line:nth-child(2) {
-        transform: none;
+    .burger-menu__line:nth-child(1) {
+        transform: translateY(-0.375rem);
     }
 
     .burger-menu__line:nth-child(3) {
@@ -2786,7 +2787,7 @@ body {
     }
 
     .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: rotate(45deg);
+        transform: translateY(0) rotate(45deg);
     }
 
     .burger-menu--active .burger-menu__line:nth-child(2) {
@@ -2795,7 +2796,7 @@ body {
     }
 
     .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: rotate(-45deg);
+        transform: translateY(0) rotate(-45deg);
     }
     .header {
         justify-content: flex-start;
@@ -2814,7 +2815,7 @@ body {
         width: 100%;
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(0.625rem);
         transition: right 0.3s ease;
         z-index: 1000;
         display: flex;
@@ -2841,7 +2842,7 @@ body {
 
     .nav__link:hover {
         color: #4F07B6;
-        transform: translateX(10px);
+        transform: translateX(0.625rem);
     }
 
 
@@ -2964,15 +2965,15 @@ body {
 
     .advantage-card {
         width: 100%;
-        height: 140px;
+        height: 8.75rem;
         margin-bottom: 1rem;
     }
 
     .advantage-card__inner {
         width: 100%;
-        height: 140px;
+        height: 8.75rem;
         border-radius: 1rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.25rem 0.938rem rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -2995,8 +2996,8 @@ body {
     }
 
     .advantage-card__image {
-        width: 70px;
-        height: 70px;
+        width: 4.375rem;
+        height: 4.375rem;
     }
 
     .advantage-card__content {
@@ -3013,7 +3014,7 @@ body {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.3;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         margin: 0;
         flex: 1;
         padding-left: 0.5rem;
@@ -3055,19 +3056,20 @@ body {
     }
 
     .advantage-card__info p {
-        font-size: 0.8rem;
+        font-size: 1rem;
         text-align: left;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         line-height: 1.4;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
         width: 100%;
-        margin-right: 2rem;
     }
 
     .advantage-card__close {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         font-size: 1.2rem;
         width: 1.8rem;
         height: 1.8rem;
@@ -3076,14 +3078,14 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border: 0.063rem solid rgba(255, 255, 255, 0.5);
     }
 
     /* Текстовые блоки преимуществ */
     .advantages__text {
         border-radius: 1rem;
         width: 100% !important;
-        height: 120px;
+        height: 7.5rem;
         margin-bottom: 1rem;
         display: flex;
         align-items: flex-start;
@@ -3097,7 +3099,7 @@ body {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.4;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         padding: 0;
         margin: 0;
     }
@@ -3195,7 +3197,7 @@ body {
         color: rgba(255, 255, 255, 1);
     }
 
-    /* Блок скачать*/
+    /* БЛОК СКАЧАТЬ - ИСПРАВЛЕННЫЙ */
     .download-block {
         flex-direction: column;
         gap: 1rem;
@@ -3254,7 +3256,7 @@ body {
     .button--playmarket:hover {
         background: #3D0590;
         transform: translateY(-0.125rem);
-        box-shadow: 0 4px 12px rgba(79, 7, 182, 0.3);
+        box-shadow: 0 0.25rem 0.75rem rgba(79, 7, 182, 0.3);
     }
 
     .button__icon {
@@ -3278,6 +3280,7 @@ body {
         max-width: 100%;
     }
 
+
     .slider-section {
         margin: 0 1rem 3rem 1rem;
     }
@@ -3288,7 +3291,7 @@ body {
         height: 31.563rem;
         border-radius: 0.9rem;
         overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
     }
 
     .slider__track {
@@ -3350,7 +3353,7 @@ body {
         background: rgba(255, 255, 255, 0.5);
         cursor: pointer;
         transition: all 0.3s ease;
-        border: 2px solid transparent;
+        border: 0.125rem solid transparent;
     }
 
     .slider__dot--active {
@@ -3378,12 +3381,12 @@ body {
         justify-content: center;
         transition: all 0.3s ease;
         z-index: 10;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
     }
 
     .slider__button:hover {
         background: rgba(255, 255, 255, 1);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.25rem 0.938rem rgba(0, 0, 0, 0.2);
     }
 
     .slider__button--prev {
@@ -3402,12 +3405,13 @@ body {
         transform: none;
     }
 
+    /* Скрываем стрелочки на мобильных 360px */
     .slider__button {
         display: none;
     }
 
     .slider__container {
-        height: 200px;
+        height: 12.5rem;
     }
 
     .slider__content {
@@ -3452,7 +3456,7 @@ body {
     }
 
     .form__textarea {
-        height: 120px;
+        height: 7.5rem;
     }
 
     .form__buttons {
@@ -3510,9 +3514,339 @@ body {
         width: 2.8rem;
         height: 2.8rem;
     }
+
+    .footer {
+        margin: 3rem 1rem 1rem 1rem;
+        text-align: left;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+
+}
+
+/* Убираем футер только на планшетах и мобильных */
+@media (max-width: 768px) and (min-width: 481px) {
+    .footer {
+        display: none !important;
+    }
+}
+
+/* Убираем футер только на мобильных 360px и меньше */
+@media (max-width: 360px) {
+    .footer {
+        display: none !important;
+    }
+}
+/* Фиксированный header при скролле */
+@media (max-width: 768px) {
+    .header {
+        position: fixed;
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        z-index: 1000;
+        padding: 2rem 5rem;
+        height: auto;
+        transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+        background: rgba(255, 255, 255, 1);
+        
+    }
+
+    .burger-menu {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.5rem;
+        z-index: 1001;
+    }
+
+    .logo {
+        position: fixed;
+        top: 1rem;
+        left: 1.5rem;
+        z-index: 1001;
+        margin-right: 0;
+    }
+    .hero {
+        margin-top: 4rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(1.25rem);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        padding-top: 5rem;
+    }
+
+    .nav--active {
+        right: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        padding: 2rem 2rem;
+    }
+
+    .header.scrolled {
+        background: rgba(255, 255, 255, 1);
+    }
+
+    .burger-menu {
+        top: 0.9rem;
+        right: 1rem;
+    }
+
+    .logo {
+        top: 0.8rem;
+        left: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .hero {
+        margin-top: 4.5rem;
+    }
+
+    .nav {
+        padding-top: 4rem;
+    }
+}
+
+/* Модальное окно успешной отправки формы */
+.modal-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(0.5rem);
+}
+
+.modal-success--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-success__content {
+    background: linear-gradient(135deg, #9FCBCE 0%, rgba(219, 223, 206, 0.95) 100%);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    max-width: 28rem;
+    width: 90%;
+    position: relative;
+    transform: scale(0.8) translateY(2rem);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
+    border: 0.125rem solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.modal-success--active .modal-success__content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.modal-success__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: rgba(79, 7, 182, 0.1);
+    border: 0.125rem solid rgba(79, 7, 182, 0.3);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    color: #4F07B6;
+    font-weight: bold;
+}
+
+.modal-success__close:hover {
+    background: rgba(79, 7, 182, 0.2);
+    border-color: rgba(79, 7, 182, 0.5);
+    transform: scale(1.1);
+}
+
+.modal-success__icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: #4F07B6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounceIn 0.6s ease;
+}
+
+.modal-success__icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: rgba(255, 255, 255, 1);
+}
+
+.modal-success__title {
+    font-family: "Unbounded", sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #004A7A;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.modal-success__text {
+    font-family: "Affect", sans-serif;
+    font-size: 1.1rem;
+    color: #222;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.modal-success__button {
+    background: #4F07B6;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-family: "Affect", sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 12rem;
+    margin: 0 auto;
+}
+
+.modal-success__button:hover {
+    background: #3D0590;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.5rem 1.25rem rgba(79, 7, 182, 0.3);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-success__content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-success__text {
+        font-size: 1rem;
+    }
+    
+    .modal-success__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .modal-success__icon svg {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-success__content {
+        padding: 1.8rem 1.2rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-success__text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal-success__button {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        max-width: 10rem;
+    }
+    
+    .modal-success__close {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-success__content {
+        padding: 1.5rem 1rem;
+        border-radius: 1.2rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .modal-success__text {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .modal-success__icon {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-success__icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .modal-success__button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        max-width: 9rem;
+    }
+}
+
+/* Адаптивность для модального окна скачивания */
 @media (max-width: 768px) {
     .modal__content {
         padding: 2rem 1.5rem;
@@ -3679,6 +4013,7 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
+
 /* Модальное окно успешной отправки формы */
 .modal-success {
     position: fixed;
@@ -3762,7 +4097,7 @@ body.no-scroll {
 .modal-success__icon svg {
     width: 2rem;
     height: 2rem;
-    fill: white;
+    fill: rgba(255, 255, 255, 1);
 }
 
 .modal-success__title {
@@ -4190,7 +4525,7 @@ body.no-scroll {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.3;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         margin: 0;
         flex: 1;
         padding-left: 0.5rem;
@@ -4234,10 +4569,10 @@ body.no-scroll {
     .advantage-card__info p {
         font-size: 1rem;
         text-align: left;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         line-height: 1.4;
         margin-bottom: 2rem;
-        padding-left: 2rem;
+        padding-left: 0.5rem;
         width: 100%;
     }
 
@@ -4245,7 +4580,7 @@ body.no-scroll {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         font-size: 1.2rem;
         width: 1.8rem;
         height: 1.8rem;
@@ -4275,7 +4610,7 @@ body.no-scroll {
         font-family: "Affect", sans-serif;
         text-align: left;
         line-height: 1.4;
-        color: white;
+        color: rgba(255, 255, 255, 1);
         padding: 0;
         margin: 0;
     }
