@@ -344,3 +344,107 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
     new DownloadModal();
 });
+// Инициализация модального окна
+document.addEventListener('DOMContentLoaded', () => {
+    new DownloadModal();
+});
+// Обработка отправки формы
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.form');
+    const successModal = document.getElementById('successModal');
+    const successClose = successModal.querySelector('.modal-success__close');
+    const successButton = successModal.querySelector('.modal-success__button');
+    
+    // Функция показа модального окна
+    function showSuccessModal() {
+        successModal.classList.add('modal-success--active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Функция скрытия модального окна
+    function hideSuccessModal() {
+        successModal.classList.remove('modal-success--active');
+        document.body.style.overflow = '';
+    }
+    
+    // Обработчик отправки формы
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Здесь обычно отправка данных на сервер
+            // Для демонстрации просто показываем модальное окно
+            
+            // Валидация формы
+            const nameInput = contactForm.querySelector('input[name="name"]');
+            const emailInput = contactForm.querySelector('input[name="email"]');
+            const messageTextarea = contactForm.querySelector('.form__textarea');
+            
+            let isValid = true;
+            
+            // Простая валидация
+            if (!nameInput.value.trim()) {
+                isValid = false;
+                highlightError(nameInput);
+            } else {
+                removeError(nameInput);
+            }
+            
+            if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+                isValid = false;
+                highlightError(emailInput);
+            } else {
+                removeError(emailInput);
+            }
+            
+            if (!messageTextarea.value.trim()) {
+                isValid = false;
+                highlightError(messageTextarea);
+            } else {
+                removeError(messageTextarea);
+            }
+            
+            if (isValid) {
+                // Показываем модальное окно успеха
+                showSuccessModal();
+                
+                // Очищаем форму
+                contactForm.reset();
+            }
+        });
+    }
+    
+    // Функции для валидации
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    function highlightError(element) {
+        element.style.borderColor = '#ff4444';
+        element.style.backgroundColor = 'rgba(255, 68, 68, 0.05)';
+    }
+    
+    function removeError(element) {
+        element.style.borderColor = '';
+        element.style.backgroundColor = '';
+    }
+    
+    // Закрытие модального окна
+    successClose.addEventListener('click', hideSuccessModal);
+    successButton.addEventListener('click', hideSuccessModal);
+    
+    // Закрытие по клику на фон
+    successModal.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+            hideSuccessModal();
+        }
+    });
+    
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && successModal.classList.contains('modal-success--active')) {
+            hideSuccessModal();
+        }
+    });
+});
