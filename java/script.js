@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
 // Модальное окно скачивания
 class DownloadModal {
     constructor() {

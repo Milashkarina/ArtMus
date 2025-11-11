@@ -1,319 +1,189 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
-    outline: 0;
-    text-decoration: none;
-    list-style: none;
-}
-
-html {
-    font-size: 1.25rem;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 2rem;
-}
-
-body {
-    background-color: rgba(255, 255, 255, 0.9);
-    height: auto;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-.main {
-    width: 100%;
-    max-width: 75rem;
-    margin: 0 auto;
-}
-
-/* Плавные переходы для размеров и отступов */
-.header,
-.footer,
-.hero,
-.advantages,
-.about-app,
-.slider-section,
-.contacts,
-.hero__title,
-.hero__text,
-.hero__img,
-.advantages__title,
-.about-app__title,
-.contacts__title,
-.advantage-card,
-.accordion__item,
-.usage-step,
-.download-block,
-.slider__container {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Шрифты */
-@font-face {
-    font-family: "Affect";
-    src: url("../fonts/affect.otf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Affect";
-    src: url("../fonts/affect_light.otf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Unbounded";
-    src: url("../fonts/Unbounded-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Unbounded";
-    src: url("../fonts/Unbounded-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: medium;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Unbounded";
-    src: url("../fonts/Unbounded-Regular.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Общие стили для header и footer */
-.header,
-.footer {
-    position: relative;
-    background-color: #fff;
-    margin: 0 7.5rem;
-    height: 3.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav__list {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    color: #222;
-    font-family: "Unbounded", sans-serif;
-    font-weight: bold;
-    z-index: 1001;
-}
-
-.nav__link {
-    display: block;
-    color: #222;
-    font-family: "Affect", sans-serif;
-    font-size: 1rem;
-    padding: 0.5rem;
-    transition: color .3s ease;
-}
-
-.nav__link:hover {
-    color: #222;
-}
-
-/* Бургер-меню с анимацией */
-.burger-menu {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 1.875rem;
-    height: 1.313rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-}
-
-.burger-menu__line {
-    display: block;
-    height: 0.188rem;
-    background-color: #222;
-    border-radius: 0.188rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
-}
-
-/* Анимация при активном состоянии */
-.burger-menu--active .burger-menu__line:nth-child(1) {
-    transform: translateY(0.563rem) rotate(45deg);
-}
-
-.burger-menu--active .burger-menu__line:nth-child(2) {
-    opacity: 0;
-    transform: scale(0);
-}
-
-.burger-menu--active .burger-menu__line:nth-child(3) {
-    transform: translateY(-0.563rem) rotate(-45deg);
-}
-
-/* Плавное появление/исчезновение средний линии */
-.burger-menu__line:nth-child(2) {
-    transition: all 0.2s ease;
-}
-
-/* Эффект при наведении */
-.burger-menu:hover .burger-menu__line {
-    background-color: #222;
-}
-
-.burger-menu--active:hover .burger-menu__line {
-    background-color: #222;
-}
-
-/* Адаптивность для бургер-меню */
-@media (max-width: 768px) {
-    .burger-menu {
-        display: flex;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: 0;
+        outline: 0;
+        text-decoration: none;
+        list-style: none;
     }
-    
-    .header {
-        position: relative;
-        padding: 1rem 0;
+
+    html {
+        font-size: 1.25rem;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 2rem;
+    }
+
+    body {
+        background-color: rgba(255, 255, 255, 0.9);
         height: auto;
-        min-height: 3.5rem;
+        min-height: 100vh;
+        overflow-x: hidden;
     }
 
-    .logo {
-        font-size: 1.4rem;
-        margin-right: auto;
-        z-index: 1002;
-    }
-
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
+    .main {
         width: 100%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(0.625rem);
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        max-width: 75rem;
+        margin: 0 auto;
     }
 
-    .nav--active {
-        right: 0;
+    /* Плавные переходы для размеров и отступов */
+    .header,
+    .footer,
+    .hero,
+    .advantages,
+    .about-app,
+    .slider-section,
+    .contacts,
+    .hero__title,
+    .hero__text,
+    .hero__img,
+    .advantages__title,
+    .about-app__title,
+    .contacts__title,
+    .advantage-card,
+    .accordion__item,
+    .usage-step,
+    .download-block,
+    .slider__container {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Шрифты */
+    @font-face {
+        font-family: "Affect";
+        src: url("../fonts/affect.otf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Affect";
+        src: url("../fonts/affect_light.otf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded-Bold.ttf") format("truetype");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: medium;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded-Regular.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    /* Общие стили для header и footer */
+    .header,
+    .footer {
+        position: relative;
+        background-color: #fff;
+        margin: 0 7.5rem;
+        height: 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        z-index: 1000;
     }
 
     .nav__list {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 2rem;
-        width: 100%;
-        padding: 0 2rem;
-        margin-left: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        color: #222;
+        font-family: "Unbounded", sans-serif;
+        font-weight: bold;
+        z-index: 1001;
     }
 
     .nav__link {
-        font-size: 1.4rem;
-        padding: 1rem 2rem;
+        display: block;
         color: #222;
-        transition: all 0.3s ease;
-        width: 100%;
-        text-align: center;
-        border-bottom: 0.063rem solid #ffffff;
+        font-family: "Affect", sans-serif;
+        font-size: 1rem;
+        padding: 0.5rem;
+        transition: color .3s ease;
     }
 
     .nav__link:hover {
         color: #222;
-        transform: translateX(0.625rem);
-    }
-}
-
-@media (max-width: 480px) {
+    }    
+/* Бургер-меню с анимацией */
     .burger-menu {
-        width: 1.563rem;
-        height: 1.125rem;
-        right: 0.8rem;
-        top: 0.8rem;
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 1.875rem;
+        height: 1.313rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        position: absolute;
+        right: 1rem;
     }
-    
-    .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: translateY(0.469rem) rotate(45deg);
-    }
-    
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: translateY(-0.469rem) rotate(-45deg);
-    }
-    
-    .nav__link {
-        font-size: 1.2rem;
-        padding: 0.8rem 1.5rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .nav__link,
-    .nav__link:hover,
-    .nav__link:focus,
-    .nav__link:active {
-        border-bottom: none;
-        text-decoration: none;
-        box-shadow: none;
-        outline: none;
-    }
-}
-
-@media (max-width: 360px) {
-    .burger-menu {
-        width: 1.375rem;
-        height: 1rem;
-        right: 0.5rem;
-        top: 0.5rem;
-    }
-    
     .burger-menu__line {
-        height: 0.156rem;
+        display: block;
+        height: 0.188rem;
+        background-color: #222;
+        border-radius: 0.188rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
     }
-    
+
+    /* Анимация при активном состоянии */
     .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: translateY(0.406rem) rotate(45deg);
+        transform: translateY(0.563rem) rotate(45deg);
     }
-    
+
+    .burger-menu--active .burger-menu__line:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
     .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: translateY(-0.406rem) rotate(-45deg);
+        transform: translateY(-0.563rem) rotate(-45deg);
     }
-    
-    .nav__list {
-        gap: 1.5rem;
-        margin-left: 1rem;
+
+    /* Плавное появление/исчезновение средний линии */
+    .burger-menu__line:nth-child(2) {
+        transition: all 0.2s ease;
     }
-    
-    .nav__link {
-        font-size: 1.1rem;
-        padding: 0.7rem 1rem;
+
+    /* Эффект при наведении */
+    .burger-menu:hover .burger-menu__line {
+        background-color: #222;
     }
-}
+
+    .burger-menu--active:hover .burger-menu__line {
+        background-color: #222;
+    }
 
 /* Главный блок */
 .hero {
@@ -712,7 +582,7 @@ body {
     line-height: 1.3;
     text-align: left;
     flex: 1;
-    padding-left: 0.5rem;
+    padding-left: 0.5rem !important;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -1649,7 +1519,6 @@ body {
     html {
         font-size: 1rem;
     }
-
     .header,
     .footer {
         margin: 0 1.5rem;
@@ -1663,6 +1532,50 @@ body {
         margin-right: auto;
     }
 
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(0.625rem);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav--active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 0 2rem;
+        margin-left: 2rem;
+    }
+
+    .nav__link {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        color: #222;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+        border-bottom: 0.063rem solid #000000;
+    }
+
+    .nav__link:hover {
+        color: #222;
+        transform: translateX(0.625rem);
+    }
+    
 
      .hero {
         margin: 1.5rem 1.5rem 3rem 1.5rem;
@@ -1799,7 +1712,7 @@ body {
     }
 
     .advantages__text {
-        width: 100%;
+        width: 100% !important;
         height: 7.5rem;
         margin-bottom: 1rem;
         display: flex;
@@ -1841,8 +1754,8 @@ body {
 
     .accordion__item {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         margin-bottom: 1rem;
     }
 
@@ -2100,35 +2013,17 @@ body {
     html {
         font-size: 0.875rem;
     }
-    .header {
-        justify-content: flex-start;
-        position: relative;
+
+    .header,
+    .footer {
         margin: 0 1rem;
-        padding: 0.5rem 0;
+        padding: 1rem 0;
         height: auto;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
     }
-
     .logo {
-        margin-right: auto;
-        font-size: 1.3rem;
-        z-index: 1002;
-        flex-shrink: 0;
-        max-width: 60%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .burger-menu {
-        display: flex;
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1003;
-        margin-left: auto;
+        margin-right: 15rem;
     }
 
     .nav {
@@ -2162,22 +2057,6 @@ body {
         color: #222;
         transition: all 0.3s ease;
     }
-
-    .nav__link:hover {
-        color: #4F07B6;
-        transform: translateX(0.625rem);
-    }
-
-
-    .header,
-    .footer {
-        margin: 0 1rem;
-        padding: 1rem 0;
-        height: auto;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
     /* Главный блок*/
     .hero {
         margin: 1rem 1rem 2rem 1rem;
@@ -2194,10 +2073,10 @@ body {
         margin-top: 1.5rem;
         width: 100%;
         margin-bottom: 2rem;
-        padding: 0;
+        padding: 0 !important;
         text-align: left;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .hero__title {
@@ -2206,7 +2085,7 @@ body {
         margin-bottom: 0.4rem;
         line-height: 1.1;
         color: #004A7A;
-        padding: 0;
+        padding: 0 !important;
         margin-left: 0.5rem;
         width: 100%;
     }
@@ -2218,7 +2097,7 @@ body {
         margin-bottom: 2rem;
         line-height: 1.4;
         color: #222;
-        padding: 0;
+        padding: 0 !important;
         width: 100%;
     }
 
@@ -2406,7 +2285,7 @@ body {
 
     .advantages__text {
         border-radius: 1rem;
-        width: 100%;
+        width: 100% !important;
         height: 7.5rem;
         margin-bottom: 1rem;
         display: flex;
@@ -2437,8 +2316,8 @@ body {
 
     .accordion__item {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         margin-bottom: 0.8rem;
         border-radius: 0.8rem;
         border: 0.25rem solid #004A7A;
@@ -2853,96 +2732,6 @@ body {
     }
 }
 
-/* Для мобильной версии */
-@media (max-width: 768px) {
-    .advantage-card__text {
-        padding-left: 0.5rem;
-    }
-    
-    .advantage-card__icon {
-        margin-left: 0;
-        margin-right: 1rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .advantage-card__text {
-        padding-left: 0.5rem;
-    }
-    
-    .advantage-card__icon {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-}
-
-/* Дополнительные улучшения для планшетов в портретной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    .hero {
-        height: 22rem;
-        padding: 0 3rem;
-    }
-    
-    .hero__title {
-        font-size: 4rem;
-    }
-    
-    .hero__img {
-        width: 20rem;
-    }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
-    }
-    
-    .advantages__text--large,
-    .advantages__text--small {
-        width: 100%;
-    }
-
-    .slider__container {
-        height: 22rem;
-    }
-}
-
-/* Оптимизация для планшетов в альбомной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    .hero {
-        height: 20rem;
-    }
-    
-    .hero__img {
-        width: 18rem;
-    }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
-    }
-
-    .slider__container {
-        height: 20rem;
-    }
-}
-
-/* Улучшение читаемости на мобильных устройствах */
-@media (max-width: 768px) {
-    body {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
-}
 
 /* Скрывать скролл при открытом меню */
 body.no-scroll {
@@ -3172,4 +2961,86 @@ body.no-scroll {
         font-size: 0.9rem;
         max-width: 9rem;
     }
+}
+/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ БУРГЕР-МЕНЮ ===== */
+
+/* Показываем бургер-меню на мобильных */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex !important;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        z-index: 1001;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(0.625rem);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav--active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .nav__link {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        color: #222;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav__link:hover {
+        color: #4F07B6;
+        transform: translateX(0.625rem);
+    }
+
+    /* Скрываем обычную навигацию на мобильных */
+    .header .nav:not(.nav--active) {
+        display: none;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .burger-menu {
+        width: 1.375rem;
+        height: 1rem;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .nav {
+        width: 85%;
+    }
+
+    .nav__link {
+        font-size: 1.1rem;
+        padding: 0.875rem 1rem;
+    }
+}
+
+/* Запрет прокрутки при открытом меню */
+.no-scroll {
+    overflow: hidden;
 }
