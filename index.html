@@ -51,7 +51,7 @@
         </section>
 
         <section class="advantages" id="advantages">
-            <h1 class="advantages__title">Преимущества</h1>
+            <h1 class="advantages__title">Преимущества идеи</h1>
             <div class="advantages__row">
                 <div class="advantage-card">
                     <div class="advantage-card__inner">
@@ -176,7 +176,7 @@
         </section>
         
         <section class="about-app" id="about-application">
-            <h1 class="about-app__title">О приложении</h1>
+            <h1 class="about-app__title">О прототипе</h1>
             <h3 class="about-app__subtitle">Возможности</h3>
             <div class="accordion">
                 <div class="accordion__item">
@@ -274,21 +274,22 @@
                     </div>
                 </div>                                    
             </div>
-            <h3 class="about-app__subtitle">Как пользоваться</h3>
+            
+            <h3 class="about-app__subtitle">Где найти прототип</h3>
             <div class="usage-steps">
                 <div class="usage-step">
                     <p class="usage-step__number">01</p>
-                    <p class="usage-step__text">скачайте <br> приложение</p>
+                    <p class="usage-step__text">перейдите по ссылке кликнув по кнопке ниже</p>
                     <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
                 </div>
                 <div class="usage-step">
                     <p class="usage-step__number">02</p>
-                    <p class="usage-step__text">зарегистрируйтесь</p>
+                    <p class="usage-step__text">откройте <br>приложение Figma</p>
                     <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
                 </div>
                 <div class="usage-step">
                     <p class="usage-step__number">03</p>
-                    <p class="usage-step__text">изучайте искусство <br> с удовольствием</p>
+                    <p class="usage-step__text">изучайте прототип <br>с удовольствием</p>
                     <img class="usage-step__bg" src="icon/frame_how_use.svg" alt="">
                 </div>
             </div>
@@ -334,53 +335,128 @@
                     </div>
                 </div>
             </div>
-            <h3 class="about-app__subtitle">Скачать</h3>
-            <div class="download-block">
-                <div class="download-block__content">
-                    <p class="download-block__text">Наше уникальное приложение <br> станет вашим верным спутником <br> в мире искусства</p>
-                    <div class="download-buttons">
-                        <button class="button button--appstore">
-                            <img class="button__icon" src="icon/appstore_white.svg" alt="">
-                            Скачать в appstore
-                        </button>
-                        <button class="button button--playmarket">
-                            <img class="button__icon" src="icon/playmarket_white.svg" alt="">
-                            Скачать в playmarket
-                        </button>
-                    </div>
-                </div>
-                <div class="download-block__image">
-                    <img class="download-block__img" src="img/download_img.png" alt="">
-                </div>
-            </div>
         </section>
-        <section class="contacts" id="contacts">
-            <h3 class="contacts__title">Контакты</h3>
-            <div class="contacts__content">
-                <div class="contacts__form">
-                    <form class="form" action="" method="get">
-                        <div class="form__content">
-                            <label class="form__field">
-                                <input type="text" name="name" class="form__input" placeholder="Имя">
+
+        <!-- Анализ эффективности прототипа -->
+        <section class="prototype-analysis" id="analysis">
+            <h2 class="prototype-analysis__title">Анализ эффективности прототипа</h2>
+            <div class="prototype-analysis__container">
+                <div class="prototype-analysis__form">
+                    <form class="analysis-form" action="https://formspree.io/f/xojnowyk" method="POST">
+                        <h3 class="analysis-form__title">Оцените приложение ArtMus</h3>
+                        
+                        <div class="analysis-form__group">
+                            <label class="analysis-form__label">
+                                Ваше имя *
+                                <input type="text" name="name" class="analysis-form__input" required>
                             </label>
-                            <label class="form__field">
-                                <input type="email" name="email" class="form__input" placeholder="E-mail">
+                            
+                            <label class="analysis-form__label">
+                                Ваш email *
+                                <input type="email" name="email" class="analysis-form__input" required>
                             </label>
-                            <textarea class="form__textarea" placeholder="Сообщение"></textarea>                        
+                            
+                            <label class="analysis-form__label">
+                                Ваш возраст
+                                <input type="number" name="age" class="analysis-form__input" min="1" max="120">
+                            </label>
+                            
+                            <label class="analysis-form__label">
+                                Кем вы являетесь?
+                                <select name="user_type" class="analysis-form__select">
+                                    <option value="parent">Родитель с детьми</option>
+                                    <option value="art_lover">Любитель искусства</option>
+                                    <option value="student">Студент</option>
+                                    <option value="teacher">Преподаватель</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </label>
                         </div>
-                        <div class="form__buttons">
-                            <button class="button button--secondary" type="reset">Очистить форму</button>
-                            <button class="button button--primary" type="submit">Отправить</button> 
+                        
+                        <div class="analysis-form__group">
+                            <h4 class="analysis-form__subtitle">Оцените функции приложения (от 1 до 5):</h4>
+                            
+                            <div class="analysis-form__rating">
+                                <span>Квесты и игры:</span>
+                                <div class="analysis-form__rating-input">
+                                    <label><input type="radio" name="games_rating" value="1"> 1</label>
+                                    <label><input type="radio" name="games_rating" value="2"> 2</label>
+                                    <label><input type="radio" name="games_rating" value="3"> 3</label>
+                                    <label><input type="radio" name="games_rating" value="4"> 4</label>
+                                    <label><input type="radio" name="games_rating" value="5"> 5</label>
+                                </div>
+                            </div>
+                            
+                            <div class="analysis-form__rating">
+                                <span>Информация о музеях:</span>
+                                <div class="analysis-form__rating-input">
+                                    <label><input type="radio" name="info_rating" value="1"> 1</label>
+                                    <label><input type="radio" name="info_rating" value="2"> 2</label>
+                                    <label><input type="radio" name="info_rating" value="3"> 3</label>
+                                    <label><input type="radio" name="info_rating" value="4"> 4</label>
+                                    <label><input type="radio" name="info_rating" value="5"> 5</label>
+                                </div>
+                            </div>
+                            
+                            <div class="analysis-form__rating">
+                                <span>Лента времени художников:</span>
+                                <div class="analysis-form__rating-input">
+                                    <label><input type="radio" name="timeline_rating" value="1"> 1</label>
+                                    <label><input type="radio" name="timeline_rating" value="2"> 2</label>
+                                    <label><input type="radio" name="timeline_rating" value="3"> 3</label>
+                                    <label><input type="radio" name="timeline_rating" value="4"> 4</label>
+                                    <label><input type="radio" name="timeline_rating" value="5"> 5</label>
+                                </div>
+                            </div>
+                            
+                            <div class="analysis-form__rating">
+                                <span>Система наград:</span>
+                                <div class="analysis-form__rating-input">
+                                    <label><input type="radio" name="rewards_rating" value="1"> 1</label>
+                                    <label><input type="radio" name="rewards_rating" value="2"> 2</label>
+                                    <label><input type="radio" name="rewards_rating" value="3"> 3</label>
+                                    <label><input type="radio" name="rewards_rating" value="4"> 4</label>
+                                    <label><input type="radio" name="rewards_rating" value="5"> 5</label>
+                                </div>
+                            </div>
                         </div>
-                    </form>                
+                        
+                        <div class="analysis-form__group">
+                            <label class="analysis-form__label">
+                                Какая функция показалась самой интересной?
+                                <input type="text" name="best_feature" class="analysis-form__input">
+                            </label>
+                            
+                            <label class="analysis-form__label">
+                                Что можно улучшить?
+                                <textarea name="improvements" class="analysis-form__textarea" rows="3"></textarea>
+                            </label>
+                            
+                            <label class="analysis-form__label">
+                                Ваши пожелания и замечания
+                                <textarea name="feedback" class="analysis-form__textarea" rows="3"></textarea>
+                            </label>
+                            
+                            <label class="analysis-form__label">
+                                Оцените вероятность использования (от 1 до 10)
+                                <input type="number" name="usage_likelihood" class="analysis-form__input" min="1" max="10">
+                            </label>
+                        </div>
+                        
+                        <div class="analysis-form__buttons">
+                            <button type="reset" class="analysis-form__button analysis-form__button--reset">Очистить</button>
+                            <button type="submit" class="analysis-form__button analysis-form__button--submit">Отправить анализ</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="contacts__info">
-                    <div class="contacts__frame">
-                        <div class="contacts__text-block">
-                            <p class="contacts__text contacts__text--large">будем рады вашим отзывам и предложениям</p>
-                            <p class="contacts__text contacts__text--small">можете отправить форму или написать в наши соцсети</p>
-                        </div>
-                        <div class="contacts__social">
+                
+                <div class="prototype-analysis__info">
+                    <h3 class="prototype-analysis__info-title">Помогите нам стать лучше!</h3>
+                    <p class="prototype-analysis__info-text">Ваше мнение очень важно для развития приложения. Ответьте на несколько вопросов, чтобы мы могли сделать ArtMus максимально полезным и интересным для вас.</p>
+                    <p class="prototype-analysis__info-text">Все поля со звездочкой (*) обязательны для заполнения.</p>
+                    <div class="prototype-analysis__social">
+                        <p>Или напишите нам в соцсетях:</p>
+                        <div class="prototype-analysis__social-links">
                             <a href="https://www.whatsapp.com/?lang=ru" class="social-link" target="_blank" aria-label="WhatsApp">
                                 <img class="social-link__icon" src="icon/whatsapp.svg" alt="WhatsApp">
                             </a>
@@ -391,10 +467,10 @@
                                 <img class="social-link__icon" src="icon/telegram.svg" alt="Telegram">
                             </a>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
-        </section>
+        </section>    
     </main>
     
     <footer class="footer">
@@ -408,31 +484,8 @@
             </ul>
         </nav>
     </footer>
-    <!-- Модальное окно скачивания -->
-    <div class="modal" id="downloadModal">
-        <div class="modal__content">
-            <button class="modal__close" aria-label="Закрыть окно">&times;</button>
-            <h2 class="modal__title">Скачать ArtMus</h2>
-            <p class="modal__subtitle">Выберите платформу для скачивания приложения</p>
-            <div class="modal__buttons">
-                <a href="https://www.apple.com/app-store/" class="modal__button" target="_blank">
-                    <img class="modal__button-icon" src="icon/appstore_black.svg" alt="App Store">
-                    <div class="modal__button-text">
-                        <div class="modal__button-title">App Store</div>
-                        <div class="modal__button-subtitle">Для iPhone и iPad</div>
-                    </div>
-                </a>
-                <a href="https://google.play/howplayworks/" class="modal__button" target="_blank">
-                    <img class="modal__button-icon" src="icon/playmarket_black.svg" alt="Google Play">
-                    <div class="modal__button-text">
-                        <div class="modal__button-title">Google Play</div>
-                        <div class="modal__button-subtitle">Для Android устройств</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Модальное окно успешной отправки формы -->
+    
+    <!-- Модальное окно успешной отправки -->
     <div class="modal-success" id="successModal">
         <div class="modal-success__content">
             <button class="modal-success__close" aria-label="Закрыть окно">&times;</button>
@@ -441,11 +494,12 @@
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
             </div>
-            <h2 class="modal-success__title">Сообщение отправлено!</h2>
-            <p class="modal-success__text">Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+            <h2 class="modal-success__title">Спасибо за оценку!</h2>
+            <p class="modal-success__text">Мы получили ваши ответы и обязательно учтем их при разработке.</p>
             <button class="modal-success__button">Понятно</button>
         </div>
     </div>
-     <script src="java/script.js"></script>
+    
+    <script src="java/script.js"></script>
 </body>
 </html>
