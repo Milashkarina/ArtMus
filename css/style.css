@@ -553,7 +553,6 @@ body {
     line-height: 1.3;
     text-align: left;
     flex: 1;
-    padding-left: 0.5rem !important;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -561,6 +560,11 @@ body {
     text-rendering: optimizeLegibility;
     margin-top: 1.1rem;
     visibility: hidden;
+}
+
+
+.advantage-card__back p {
+    padding-left: 0.5rem;
 }
 
 .advantage-card__close {
@@ -2633,10 +2637,8 @@ body {
         margin-top: 1.5rem;
         width: 100%;
         margin-bottom: 2rem;
-        padding: 0 !important;
+        padding: 0;
         text-align: left;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
     }
 
     .hero__title {
@@ -2645,7 +2647,7 @@ body {
         margin-bottom: 0.4rem;
         line-height: 1.1;
         color: #3E92A3;
-        padding: 0 !important;
+        padding: 0;
         margin-left: 0.5rem;
         width: 100%;
     }
@@ -2657,7 +2659,7 @@ body {
         margin-bottom: 2rem;
         line-height: 1.4;
         color: #222;
-        padding: 0 !important;
+        padding: 0;
         width: 100%;
     }
 
@@ -3311,23 +3313,23 @@ body {
 /* Для мобильной версии */
 @media (max-width: 768px) {
     .advantage-card__text {
-        padding-left: 0.5rem !important;
+        padding-left: 0.5rem;
     }
     
     .advantage-card__icon {
-        margin-left: 0 !important;
-        margin-right: 1rem !important;
+        margin-left: 0;
+        margin-right: 1rem;
     }
 }
 
 @media (max-width: 360px) {
     .advantage-card__text {
-        padding-left: 0.5rem !important;
+        padding-left: 0.5rem;
     }
     
     .advantage-card__icon {
-        margin-left: 0.5rem !important;
-        margin-right: 0.5rem !important;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 }
 
