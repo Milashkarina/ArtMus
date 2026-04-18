@@ -167,8 +167,11 @@ body {
 }
 
 .hero__img {
-    width: 27rem;
+    width: 16rem;
     height: auto;
+    max-width: 100%;
+    background: transparent;
+    box-shadow: none;
 }
 
 .hero__title {
@@ -177,6 +180,7 @@ body {
     font-size: 5.5rem;
     color: #3E92A3;
     margin-bottom: 0.5rem;
+    margin-left: 2rem;
 }
 
 .hero__text {
@@ -184,12 +188,16 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 0.2rem;
+    margin-left: 2rem;
 }
 
 .hero__social {
     display: flex;
     gap: 1rem;
-    margin: 1rem 0;
+    margin-top: 1rem;     
+    margin-right: 0;       
+    margin-bottom: 1rem;  
+    margin-left: 2rem;
 }
 
 .social-link {
@@ -206,27 +214,6 @@ body {
     height: 4rem;
 }
 
-.button--download {
-    background: #FF7F3F;
-    color: rgba(255, 255, 255, 0.9);
-    width: 26rem;
-    height: 2.5rem;
-    border-radius: 1.25rem;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all .3s ease;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button--download:hover,
-.button--download:focus {
-    background: #2C6C7A;
-    transform: translateY(-0.125rem);
-}
 
 /* Модальное окно скачивания */
 .modal {
@@ -830,14 +817,13 @@ body {
     width: 100%;
 }
 
-.slider__bg_1,
-.slider__bg_2,
-.slider__bg_3,
-.slider__bg_4 {
+
+.slider__gif {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    border-radius: 0.9rem;
 }
 
 .slider__dots {
@@ -1053,7 +1039,7 @@ body {
     padding: 1rem 0;
 }
 
-/* ========== НОВЫЙ БЛОК - Анализ эффективности прототипа ========== */
+/* Блок анализ эффективности прототипа */
 .prototype-analysis {
     margin: 5.25rem 7.5rem;
     padding: 2.5rem;
@@ -1534,7 +1520,7 @@ body {
     }
 
     .hero__img {
-        width: 24rem;
+        width: 20rem;
     }
 
     .advantages,
@@ -1689,7 +1675,7 @@ body {
     }
 
     .hero__img {
-        width: 25rem;
+        width: 18rem;
         margin-left: 1.2rem;
     }
 
@@ -1807,7 +1793,7 @@ body {
     }
 
     .hero__img {
-        width: 20rem;
+        width: 16rem;
     }
 
     .advantages,
@@ -2047,7 +2033,7 @@ body {
     }
 
     .hero__img {
-        width: 20rem;
+        width: 18rem;
         max-width: 100%;
         height: auto;
     }
@@ -2061,14 +2047,6 @@ body {
     .social-link__icon {
         width: 3.2rem;
         height: 3.2rem;
-    }
-
-    .button--download {
-        width: 100%;
-        max-width: 35rem;
-        font-size: 1.3rem;
-        height: 3.2rem;
-        margin: 1rem auto 0;
     }
 
     /* Блок преимуществ */
@@ -2427,7 +2405,7 @@ body {
     }
 
     .hero__img {
-        width: 18rem;
+        width: 16rem;
     }
 
     .slider__container {
@@ -2656,7 +2634,7 @@ body {
     }
 
     .hero__img {
-        width: 17.5rem;
+        width: 14rem;
         max-width: 100%;
         height: auto;
         margin-left: 1rem;
@@ -2673,13 +2651,7 @@ body {
         height: 3rem;
     }
 
-    .button--download {
-        width: 100%;
-        max-width: 21rem;
-        font-size: 1.2rem;
-        height: 3.5rem;
-        margin: 1rem auto 0;
-    }
+    /* Кнопка скрыта */
 
     .advantages__title,
     .about-app__title,
@@ -2994,17 +2966,14 @@ body {
     .slider__content {
         text-align: center;
         padding: 2rem;
-        max-width: 80%;
+        max-width: 100%;
         width: 100%;
     }
 
-    .slider__bg_1,
-    .slider__bg_2,
-    .slider__bg_3,
-    .slider__bg_4 {
+    .slider__gif {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
     }
 
@@ -3331,7 +3300,7 @@ body {
     }
     
     .hero__img {
-        width: 20rem;
+        width: 16rem;
     }
     
     .advantages__row {
@@ -3361,7 +3330,7 @@ body {
     }
     
     .hero__img {
-        width: 18rem;
+        width: 15rem;
     }
     
     .advantages__row {
@@ -3391,7 +3360,8 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
-/* Кнопка прототипа Figma — только стили */
+
+/* Кнопка прототипа Figma */
 .figma-prototype-btn {
     background: #3E92A3;
     color: white;
