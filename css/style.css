@@ -14,7 +14,7 @@ html {
     font-size: 1.25rem;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    scroll-padding-top: 2rem;
+    scroll-padding-top: 5rem;
 }
 
 body {
@@ -76,18 +76,50 @@ body {
     font-display: swap;
 }
 
-/* Общие стили для header и footer */
-.header,
-.footer {
-    position: relative;
+/* ЛИПКИЙ HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #fff;
-    margin: 0 7.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    padding: 0 7.5rem;
     height: 3.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
     z-index: 1000;
+    width: 100%;
+    margin: 0;
+}
+
+/* Отступ для основного контента, чтобы не наезжал на фиксированный header */
+body {
+    padding-top: 3.5rem;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding-top: 3.5rem;
+    }
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+.footer {
+    background-color: #fff;
+    margin: 7rem 7.5rem 0 7.5rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav__list {
@@ -116,30 +148,102 @@ body {
     color: #3E92A3;
 }
 
-/* Бургер-меню */
+/* Бургер-меню - исправленное позиционирование */
 .burger-menu {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 30px;
-    height: 21px;
+    height: 30px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
-    position: absolute;
-    right: 1rem;
+    z-index: 1002;
+    position: relative;
 }
 
 .burger-menu__line {
     display: block;
+    position: absolute;
     height: 3px;
     width: 100%;
     background-color: #222;
     border-radius: 3px;
     transition: all 0.3s ease;
-    transform-origin: center;
+    left: 0;
+}
+
+.burger-menu__line:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.burger-menu__line:nth-child(2) {
+    transform: none;
+}
+
+.burger-menu__line:nth-child(3) {
+    transform: translateY(8px);
+}
+
+.burger-menu--active .burger-menu__line:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.burger-menu--active .burger-menu__line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.burger-menu--active .burger-menu__line:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Навигационное меню - исправленное */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        transition: right 0.4s ease-in-out;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav--active {
+        right: 0;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 0 2rem;
+        text-align: center;
+    }
+    
+    .nav__link {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        width: 100%;
+    }
 }
 
 /* Главный блок */
@@ -389,23 +493,30 @@ body {
     height: 12rem;
 }
 
+/* ТЕКСТ ПО ЦЕНТРУ для плашек */
 .advantages__text-content {
     color: rgba(255, 255, 255, 0.9);
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 1rem;
-    padding-left: 1.125rem;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .advantages__text--large .advantages__text-content {
-    padding-top: 7rem;
+    padding: 1rem;
 }
 
 .advantages__text--small .advantages__text-content {
-    padding-top: 4rem;
+    padding: 1rem;
 }
 
-/* Карточки преимуществ 1440px */
+/* Карточки преимуществ */
 .advantage-card {
     width: 14.5rem;
     height: 12rem;
@@ -538,30 +649,52 @@ body {
     padding-left: 0.5rem;
 }
 
+/* ИСПРАВЛЕННЫЙ КРЕСТИК */
 .advantage-card__close {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    color: rgba(255, 255, 255, 0.8);
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 0.125rem solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    visibility: hidden;
-    z-index: 10;
-    width: 1.875rem;
-    height: 1.875rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    z-index: 10;
+    visibility: hidden;
+}
+
+.advantage-card__close::before,
+.advantage-card__close::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 0.125rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.063rem;
+}
+
+.advantage-card__close::before {
+    transform: rotate(45deg);
+}
+
+.advantage-card__close::after {
+    transform: rotate(-45deg);
 }
 
 .advantage-card__close:hover {
-    color: rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.9);
     transform: scale(1.1);
+}
+
+.advantage-card__close:hover::before,
+.advantage-card__close:hover::after {
+    background-color: white;
 }
 
 .advantage-card__inner.active .advantage-card__close {
@@ -577,11 +710,11 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
@@ -602,10 +735,9 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Остальные стили для десктопной версии */
+/* Стили для about-app */
 .about-app__title,
-.contacts__title,
-.advantages__title {
+.contacts__title {
     font-family: "Unbounded", sans-serif;
     font-weight: bold;
     font-size: 2.625rem;
@@ -655,24 +787,27 @@ body {
     margin-right: 20rem;
 }
 
+/* АККОРДИОН - открытие по всей плашке */
 .accordion__header {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
     cursor: pointer;
     background: rgba(255, 255, 255, 1);
     transition: background-color 0.3s ease;
-    min-height: 3.8rem;
+    min-height: 4rem;
+    width: 100%;
 }
 
 .accordion__header:hover {
-    background: rgba(255, 255, 255, 1);
+    background: rgba(62, 146, 163, 0.05);
 }
 
 .accordion__icon {
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
+    flex-shrink: 0;
 }
 
 .accordion__title {
@@ -681,20 +816,32 @@ body {
     font-size: 1.1rem;
     flex-grow: 1;
     font-weight: normal;
+    cursor: pointer;
 }
 
+/* УВЕЛИЧЕННАЯ КНОПКА АККОРДИОНА */
 .accordion__toggle {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.3rem;
+    padding: 0.5rem;
     transition: transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .accordion__toggle img {
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.8rem;
+    height: 2.8rem;
     transform: rotate(90deg);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.accordion__item.active .accordion__toggle img {
+    transform: rotate(270deg);
 }
 
 .accordion__content {
@@ -717,16 +864,12 @@ body {
     max-height: 18rem;
 }
 
-.accordion__item.active .accordion__toggle {
-    transform: rotate(180deg);
-}
-
 .accordion__item:not(.active) .accordion__header {
-    padding: 0.8rem 1.5rem;
-    min-height: 3.5rem;
+    padding: 1rem 1.5rem;
+    min-height: 3.8rem;
 }
 
-/* Блок как пользоваться*/
+/* Блок как пользоваться */
 .usage-steps {
     display: flex;
     gap: 1rem;
@@ -814,7 +957,6 @@ body {
     width: 100%;
 }
 
-/* Стили для MP4 видео в слайдере */
 .slider__video {
     width: 100%;
     height: 100%;
@@ -1031,12 +1173,7 @@ body {
     height: 3rem;
 }
 
-.footer {
-    margin: 7rem 7.5rem 0 7.5rem;
-    padding: 1rem 0;
-}
-
-/* ========== НОВЫЙ БЛОК - Анализ эффективности прототипа ========== */
+/* Блок анализа прототипа */
 .prototype-analysis {
     margin: 5.25rem 7.5rem;
     padding: 2.5rem;
@@ -1255,7 +1392,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Модальное окно успешной отправки формы */
+/* Модальное окно успешной отправки */
 .modal-success {
     position: fixed;
     top: 0;
@@ -1393,95 +1530,35 @@ body {
     }
 }
 
-/* Адаптивность для модального окна */
-@media (max-width: 768px) {
-    .modal-success__content {
-        padding: 2rem 1.5rem;
-        margin: 1rem;
-    }
-    
-    .modal-success__title {
-        font-size: 1.5rem;
-    }
-    
-    .modal-success__text {
-        font-size: 1rem;
-    }
-    
-    .modal-success__icon {
-        width: 3.5rem;
-        height: 3.5rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .modal-success__icon svg {
-        width: 1.8rem;
-        height: 1.8rem;
-    }
+/* Кнопка прототипа Figma */
+.figma-prototype-btn {
+    background: #3E92A3;
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: 3rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    display: inline-block;
 }
 
-@media (max-width: 480px) {
-    .modal-success__content {
-        padding: 1.8rem 1.2rem;
-    }
-    
-    .modal-success__title {
-        font-size: 1.3rem;
-    }
-    
-    .modal-success__text {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .modal-success__button {
-        padding: 0.9rem 1.5rem;
-        font-size: 1rem;
-        max-width: 10rem;
-    }
-    
-    .modal-success__close {
-        width: 2.2rem;
-        height: 2.2rem;
-        font-size: 1.3rem;
-    }
+.figma-prototype-btn:hover {
+    background: #2C6C7A;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(62, 146, 163, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
-@media (max-width: 360px) {
-    .modal-success__content {
-        padding: 1.5rem 1rem;
-        border-radius: 1.2rem;
-    }
-    
-    .modal-success__title {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .modal-success__text {
-        font-size: 0.9rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .modal-success__icon {
-        width: 3rem;
-        height: 3rem;
-        margin-bottom: 1rem;
-    }
-    
-    .modal-success__icon svg {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    
-    .modal-success__button {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
-        max-width: 9rem;
-    }
+.figma-prototype-btn:active {
+    transform: translateY(0);
 }
 
-/* Промежуточные breakpoints для плавности */
+/* Адаптивность */
 @media (max-width: 1440px) {
     html {
         font-size: 1.2rem;
@@ -1493,17 +1570,23 @@ body {
         margin-left: 16.8rem;
         margin-right: 0;
     }
+    
+    .header {
+        padding: 0 5rem;
+    }
 }
 
-/* Адаптивность для 1280px */
 @media (max-width: 1280px) {
-    .header,
     .footer {
         margin: 0 5rem;
     }
     
+    .header {
+        padding: 0 5rem;
+    }
+    
     .hero {
-        margin: 2.5rem 5rem 4.5rem 5rem;
+        margin: 3rem 5rem 5.25rem 5rem;
         height: 25rem;
         padding: 0 3.5rem;
     }
@@ -1523,7 +1606,7 @@ body {
     .advantages,
     .about-app,
     .slider-section {
-        margin: 0 5rem 4.5rem 5rem;
+        margin: 0 5rem 5.25rem 5rem;
     }
 
     .advantages__title,
@@ -1596,40 +1679,12 @@ body {
         height: 28rem;
     }
 
-    .slider__button--prev img,
-    .slider__button--next img {
-        width: 1.8rem;
-        height: 1.8rem;
-        transform: none;
-    }
-
     .contacts {
         margin: 0 5rem 2rem 5rem;
     }
 
-    .contacts__content {
-        gap: 2.5rem;
-    }
-
-    .contacts__form {
-        padding: 2.2rem;
-        max-width: 24rem;
-    }
-
-    .contacts__info {
-        padding: 2.2rem;
-    }
-
-    .contacts__text--large {
-        font-size: 1.4rem;
-    }
-
-    .contacts__text--small {
-        font-size: 0.95rem;
-    }
-
     .prototype-analysis {
-        margin: 4.5rem 5rem;
+        margin: 5.25rem 5rem;
         padding: 2rem;
     }
     
@@ -1642,21 +1697,27 @@ body {
     html {
         font-size: 1.15rem;
     }
+    
+    .header {
+        padding: 0 3rem;
+    }
 }
 
-/* Адаптивность для 1024px */
 @media (max-width: 1024px) {
     html {
         font-size: 1.1rem;
     }
 
-    .header,
     .footer {
         margin: 0 3rem;
     }
+    
+    .header {
+        padding: 0 3rem;
+    }
 
     .hero {
-        margin: 2rem 4rem 4rem 4rem;
+        margin: 3rem 4rem 5.25rem 4rem;
         height: 26.5rem;
         padding: 0 3rem;
     }
@@ -1677,7 +1738,7 @@ body {
     .advantages,
     .about-app,
     .slider-section {
-        margin: 0 4rem 4rem 4rem;
+        margin: 0 4rem 5.25rem 4rem;
     }
 
     .advantages__title,
@@ -1729,13 +1790,6 @@ body {
         height: 26rem;
     }
 
-    .slider__button--prev img,
-    .slider__button--next img {
-        width: 1.8rem;
-        height: 1.8rem;
-        transform: none;
-    }
-
     .contacts__info {
         display: flex;
         flex-direction: column;
@@ -1748,7 +1802,7 @@ body {
     }
 
     .prototype-analysis {
-        margin: 4rem;
+        margin: 5.25rem 4rem;
         padding: 2rem;
     }
     
@@ -1759,31 +1813,29 @@ body {
     .prototype-analysis__info {
         min-height: 250px;
     }
-    
-    .analysis-form__rating-input {
-        gap: 0.8rem;
-    }
 }
 
-/* Адаптивность для 900px */
 @media (max-width: 900px) {
     html {
         font-size: 1.05rem;
     }
 
-    .header,
     .footer {
         margin: 0 3rem;
     }
+    
+    .header {
+        padding: 0 3rem;
+    }
 
     .hero {
-        margin: 2rem 3rem 3.5rem 3rem;
+        margin: 3rem 3rem 5.25rem 3rem;
         height: 22rem;
         padding: 0 2.5rem;
     }
 
     .hero__title {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .hero__img {
@@ -1793,7 +1845,7 @@ body {
     .advantages,
     .about-app,
     .slider-section {
-        margin: 0 3rem 3.5rem 3rem;
+        margin: 0 3rem 5.25rem 3rem;
     }
 
     .advantages__title,
@@ -1811,70 +1863,35 @@ body {
     }
 }
 
-/* Адаптивность для 768px */
 @media (max-width: 768px) {
     html {
         font-size: 16px;
     }
 
-    .header,
     .footer {
         margin: 0 1.5rem;
         height: auto;
         padding: 1rem 0;
-        flex-direction: row;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .header {
+        padding: 0.75rem 1.5rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    /* Увеличиваем отступ для body на мобильных */
+    body {
+        padding-top: 3.5rem;
     }
   
     .burger-menu {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 1.563rem;
-        height: 1.875rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-        position: absolute;
-        right: 1rem;
-    }
-
-    .burger-menu__line {
-        display: block;
-        height: 0.125rem;
-        width: 100%;
-        background-color: #222;
-        border-radius: 0.188rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-origin: center;
-        position: absolute;
-    }
-
-    .burger-menu__line:nth-child(1) {
-        transform: translateY(-0.375rem);
-    }
-
-    .burger-menu__line:nth-child(2) {
-        transform: none;
-    }
-
-    .burger-menu__line:nth-child(3) {
-        transform: translateY(0.375rem);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: rotate(45deg);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(2) {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: rotate(-45deg);
     }
 
     .logo {
@@ -1890,8 +1907,8 @@ body {
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
-        transition: right 0.3s ease;
-        z-index: 1000;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1913,15 +1930,6 @@ body {
     .nav__link {
         font-size: 1.4rem;
         padding: 1rem 2rem;
-        color: #222;
-        transition: all 0.3s ease;
-        text-align: center;
-        width: auto;
-    }
-
-    .nav__link:hover {
-        color: #3E92A3;
-        transform: translateX(10px);
     }
 
     .hero {
@@ -1929,67 +1937,33 @@ body {
         padding: 2.5rem 2rem;
         flex-direction: column;
         height: auto;
-        text-align: center;
-        border-radius: 1rem;
-    }
-
-    .hero__content {
-        order: 1;
-        margin-bottom: 2rem;
-        text-align: center;
-        width: 100%;
-    }
-
-    .hero__image {
-        order: 2;
-        width: 100%;
-        justify-content: center;
     }
 
     .hero__title {
         font-size: 3.5rem;
         margin-left: 0;
         text-align: center;
-        margin-bottom: 1rem;
-        line-height: 1.1;
     }
 
     .hero__text {
         font-size: 1.4rem;
         margin-left: 0;
         text-align: center;
-        margin-bottom: 1.5rem;
-        line-height: 1.4;
     }
 
     .hero__img {
         width: 18rem;
-        max-width: 100%;
-        height: auto;
     }
 
     .hero__social {
         justify-content: center;
-        margin: 1.5rem 0;
         margin-left: 0;
-    }
-
-    .social-link__icon {
-        width: 3.2rem;
-        height: 3.2rem;
     }
 
     .advantages,
     .about-app,
     .slider-section {
         margin: 0 1.5rem 3rem 1.5rem;
-    }
-
-    .advantages__title,
-    .about-app__title {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        text-align: left;
     }
 
     .advantages__row {
@@ -2000,21 +1974,18 @@ body {
     .advantage-card {
         width: 100%;
         height: 140px;
-        margin-bottom: 1rem;
     }
 
     .advantage-card__inner {
         flex-direction: row;
         align-items: center;
         padding: 1.2rem;
-        height: 100%;
     }
 
     .advantage-card__icon {
         margin-bottom: 0;
         margin-right: 1rem;
         height: auto;
-        flex-shrink: 0;
     }
 
     .advantage-card__image {
@@ -2029,51 +2000,17 @@ body {
         flex: 1;
     }
 
-    .advantage-card__text {
-        font-size: 1.1rem;
-        text-align: left;
-        line-height: 1.3;
-    }
-
-    .advantage-card__button-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
     .advantages__text {
         width: 100% !important;
         height: 120px;
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
         padding: 1.5rem;
-    }
-
-    .advantage-card__info p {
-        font-size: 1rem;
-        line-height: 1.4;
-        margin-bottom: 2rem;
-    }
-
-    .advantages__text-content {
-        font-size: 1.1rem;
-        text-align: left;
-        line-height: 1.4;
-        padding: 0;
-        margin: 0;
-    }
-
-    .advantages__text--large .advantages__text-content,
-    .advantages__text--small .advantages__text-content {
-        padding-top: 0;
     }
 
     .about-app__subtitle {
         font-size: 1.5rem;
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        text-align: left;
     }
 
     .accordion {
@@ -2084,89 +2021,42 @@ body {
         width: 100%;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        margin-bottom: 1rem;
     }
 
     .accordion__header {
         padding: 1rem 1.2rem;
-        min-height: 4rem;
     }
 
     .accordion__icon {
-        width: 2.8rem;
-        height: 2.8rem;
-        margin-right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0.8rem;
     }
 
     .accordion__title {
-        font-size: 1.1rem;
-        line-height: 1.3;
+        font-size: 1rem;
     }
-
+    
     .accordion__toggle img {
-        width: 2.2rem;
-        height: 2.2rem;
-    }
-
-    .accordion__content p {
-        padding: 1.2rem 1.5rem;
-        font-size: 0.95rem;
-        line-height: 1.5;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .usage-steps {
         flex-direction: column;
-        gap: 1rem;
     }
 
     .usage-step {
-        min-height: 7rem;
         width: 100%;
-        padding: 1.5rem;
-        justify-content: flex-start;
-        text-align: left;
-    }
-
-    .usage-step__number {
-        font-size: 3rem;
-        margin-right: 1.2rem;
-        flex-shrink: 0;
-    }
-
-    .usage-step__text {
-        font-size: 1.1rem;
-        line-height: 1.3;
-        margin-right: 1rem;
-    }
-
-    .slider-section {
-        margin: 0 1.5rem 3rem 1.5rem;
     }
 
     .slider__container {
-        width: 100%;
-        height: 25rem;
+        height: 20rem;
     }
 
     .slider__button {
-        width: 2.8rem;
-        height: 2.8rem;
-    }
-
-    .slider__content {
-        padding: 1rem;
-        max-width: 95%;
-    }
-
-    .slider__button--prev img,
-    .slider__button--next img {
-        width: 1.9rem;
-        height: 1.9rem;
-    }
-    
-    /* Стили для видео на планшетах */
-    .slider__video {
-        border-radius: 0.5rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     .contacts {
@@ -2181,41 +2071,6 @@ body {
     .contacts__form {
         max-width: none;
         padding: 2rem;
-        width: 100%;
-    }
-
-    .contacts__info {
-        padding: 2rem;
-        min-height: auto;
-        text-align: left;
-    }
-
-    .contacts__text--large {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-    }
-
-    .contacts__text--small {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .contacts__social {
-        justify-content: left;
-        gap: 1.2rem;
-    }
-
-    .contacts__social .social-link__icon {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .footer {
-        margin: 3rem 1.5rem 1rem 1.5rem;
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-        padding: 1.5rem 0;
     }
 
     .prototype-analysis {
@@ -2227,10 +2082,6 @@ body {
         font-size: 2rem;
     }
     
-    .analysis-form__rating-input {
-        gap: 0.5rem;
-    }
-    
     .analysis-form__buttons {
         flex-direction: column;
     }
@@ -2238,583 +2089,43 @@ body {
     .analysis-form__button {
         width: 100%;
     }
-    
-    .prototype-analysis__info {
-        min-height: auto;
-        padding: 1.5rem;
-    }
-    
-    .prototype-analysis__info-title {
-        font-size: 1.3rem;
-    }
 }
 
-/* Адаптивность для 480px */
 @media (max-width: 480px) {
     html {
         font-size: 15px;
     }
 
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 25px;
-        height: 30px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-        position: absolute;
-        right: 1rem;
-    }
-    
-    .burger-menu__line:nth-child(1) {
-        transform: translateY(-6px);
-    }
-
-    .burger-menu__line:nth-child(3) {
-        transform: translateY(6px);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(1) {
-        transform: translateY(0) rotate(45deg);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(2) {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    .burger-menu--active .burger-menu__line:nth-child(3) {
-        transform: translateY(0) rotate(-45deg);
-    }
-
     .hero__title {
         font-size: 2.8rem;
-        margin-left: 0;
     }
 
     .hero__text {
         font-size: 1.2rem;
-        margin-left: 0;
-    }
-
-    .hero__social {
-        margin-left: 0;
-    }
-
-    .hero__img {
-        width: 16rem;
-    }
-
-    .slider__container {
-        height: 22rem;
-    }
-
-    .slider__button {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .slider__button--prev img,
-    .slider__button--next img {
-        width: 1.2rem;
-        height: 1.2rem;
-    }
-
-    .prototype-analysis {
-        margin: 2rem 1rem;
-        padding: 1.2rem;
-    }
-    
-    .prototype-analysis__title {
-        font-size: 1.8rem;
-    }
-    
-    .analysis-form__title {
-        font-size: 1.3rem;
-    }
-    
-    .analysis-form__rating-input {
-        gap: 0.3rem;
-    }
-    
-    .analysis-form__rating-input label {
-        font-size: 0.9rem;
-    }
-    
-    .prototype-analysis__info-title {
-        font-size: 1.2rem;
-    }
-    
-    .prototype-analysis__info-text {
-        font-size: 0.9rem;
-    }
-}
-
-/* мобильная версия 360px */
-@media (max-width: 360px) {
-    html {
-        font-size: 14px;
-    }
-
-    .header {
-        justify-content: flex-start;
-        position: relative;
-        margin: 0 1rem;
-    }
-
-    .logo {
-        margin-right: auto;
-    }
-
-    .hero {
-        margin: 1rem 1rem 2rem 1rem;
-        padding: 1rem 1rem;
-        flex-direction: column;
-        height: auto;
-        text-align: left;
-        border-radius: 1rem;
-        background: #F2F2F2;
-    }
-
-    .hero__content {
-        order: 1;
-        margin-top: 1.5rem;
-        width: 100%;
-        margin-bottom: 2rem;
-        padding: 0;
-        text-align: center;
-    }
-
-    .hero__title {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 0.4rem;
-        line-height: 1.1;
-        color: #3E92A3;
-        padding: 0;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .hero__text {
-        font-size: 1.2rem;
-        text-align: center;
-        margin-left: 0;
-        margin-bottom: 2rem;
-        line-height: 1.4;
-        color: #222;
-        padding: 0;
-        width: 100%;
-    }
-
-    .hero__image {
-        order: 2;
-        margin-bottom: 0;
-        width: 100%;
     }
 
     .hero__img {
         width: 14rem;
-        max-width: 100%;
-        height: auto;
-        margin-left: 0;
-    }
-
-    .hero__social {
-        justify-content: center;
-        margin-left: 0;
-        gap: 0.8rem;
-    }
-
-    .social-link__icon {
-        width: 3rem;
-        height: 3rem;
     }
 
     .advantages__title,
-    .about-app__title,
-    .contacts__title {
+    .about-app__title {
         font-size: 1.8rem;
-        text-align: left;
-        margin-bottom: 1.5rem;
-        padding-left: 0.5rem;
-    }
-
-    .about-app__subtitle {
-        font-size: 1.3rem;
-        text-align: left;
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        padding-left: 0.5rem;
-    }
-
-    .advantages,
-    .about-app,
-    .contacts,
-    .slider-section,
-    .usage-steps {
-        margin: 0 1rem 3rem 1rem;
-    }
-
-    .advantages__row {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .advantage-card {
-        width: 100%;
-        height: 140px;
-        margin-bottom: 1rem;
-    }
-
-    .advantage-card__inner {
-        width: 100%;
-        height: 140px;
-        border-radius: 1rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 1rem;
-        position: relative;
-        overflow: hidden;
-        background: #3E92A3;
-    }
-
-    .advantage-card__icon {
-        margin-right: 0.5rem;
-        padding-top: 0;
-        margin-bottom: 0;
-        flex-shrink: 0;
-    }
-
-    .advantage-card__image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .advantage-card__content {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
-    }
-
-    .advantage-card__text {
-        font-size: 1.2rem;
-        font-family: "Roboto", sans-serif;
-        text-align: left;
-        line-height: 1.3;
-        color: white;
-        margin: 0;
-        flex: 1;
-        padding-left: 0.5rem;
-    }
-
-    .advantage-card__button-icon {
-        width: 2.2rem;
-        height: 2.2rem;
-    }
-
-    .advantage-card__info {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #3E92A3;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
-        z-index: 2;
-    }
-
-    .advantage-card__inner.active .advantage-card__info {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .advantage-card__back {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .advantage-card__info p {
-        font-size: 1rem;
-        text-align: left;
-        color: white;
-        line-height: 1.4;
-        margin-bottom: 2rem;
-        padding-left: 2rem;
-        width: 100%;
-    }
-
-    .advantage-card__close {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        color: white;
-        font-size: 1.2rem;
-        width: 1.8rem;
-        height: 1.8rem;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .advantages__text {
-        border-radius: 1rem;
-        width: 100% !important;
-        height: 120px;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        background: #3E92A3;
-        padding: 1.5rem;
-    }
-
-    .advantages__text-content {
-        font-size: 1.1rem;
-        font-family: "Roboto", sans-serif;
-        text-align: left;
-        line-height: 1.4;
-        color: white;
-        padding: 0;
-        margin: 0;
-    }
-
-    .accordion {
-        width: 100%;
-    }
-
-    .accordion__item {
-        width: 100%;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-bottom: 0.8rem;
-        border-radius: 0.8rem;
-    }
-
-    .accordion__header {
-        padding: 1rem;
-        min-height: 3.5rem;
-    }
-
-    .accordion__icon {
-        width: 2.2rem;
-        height: 2.2rem;
-        margin-right: 0.8rem;
-    }
-
-    .accordion__title {
-        font-size: 0.95rem;
-        text-align: left;
-        color: #3E92A3;
-    }
-
-    .accordion__toggle img {
-        width: 2rem;
-        height: 2rem;
-    }
-
-    .accordion__content p {
-        padding: 1.2rem 1.5rem;
-        font-size: 0.85rem;
-        line-height: 1.4;
-        text-align: left;
-    }
-
-    .usage-steps {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        align-items: stretch;
-    }
-
-    .usage-step {
-        width: 100%;
-        border-radius: 1rem;
-        min-height: 7.5rem;
-        align-items: center;
-        position: relative;
-        background: #FF7F3F;
-        display: flex;
-        gap: 1rem;
-    }
-
-    .usage-step__number {
-        font-size: 2.2rem;
-        text-align: left;
-        font-family: "Roboto", sans-serif;
-        font-weight: normal;
-        position: static;
-        color: rgba(255, 255, 255, 1);
-        flex-shrink: 0;
-    }
-
-    .usage-step__text {
-        font-size: 1.1rem;
-        font-family: "Roboto", sans-serif;
-        font-weight: normal;
-        text-align: left;
-        position: static;
-        color: rgba(255, 255, 255, 1);
-    }
-
-    .slider-section {
-        margin: 0 1rem 3rem 1rem;
     }
 
     .slider__container {
-        position: relative;
-        width: 100%;
-        height: 200px;
-        border-radius: 0.9rem;
-        overflow: hidden;
-    }
-
-    .slider__content {
-        text-align: center;
-        padding: 0.5rem;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    /* Стили для видео на мобильных */
-    .slider__video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-        border-radius: 0.5rem;
+        height: 16rem;
     }
 
     .slider__button {
         display: none;
     }
-
-    .slider__dots {
-        bottom: 0.5rem;
+    
+    .accordion__toggle img {
+        width: 2.2rem;
+        height: 2.2rem;
     }
-
-    .slider__dot {
-        width: 0.6rem;
-        height: 0.6rem;
-    }
-
-    .contacts__content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .contacts__form {
-        width: 100%;
-        padding: 1.5rem;
-        border-radius: 1rem;
-        max-width: none;
-        background: #3E92A3;
-        min-height: auto;
-    }
-
-    .form__content {
-        gap: 1rem;
-    }
-
-    .form__input,
-    .form__textarea {
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-        border-radius: 0.8rem;
-        text-align: left;
-        background: rgba(255, 255, 255, 1);
-    }
-
-    .form__textarea {
-        height: 120px;
-    }
-
-    .form__buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .button {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        border-radius: 0.8rem;
-        height: 3.2rem;
-    }
-
-    .contacts__info {
-        width: 100%;
-        padding: 2rem 1.5rem;
-        border-radius: 1rem;
-        text-align: left;
-        border: #3E92A3 solid;
-        height: auto;
-        min-height: auto;
-        position: static;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contacts__text {
-        text-align: left;
-        margin-bottom: 1.5rem;
-        line-height: 1.4;
-        position: static;
-        width: 100%;
-        color: #3E92A3;
-    }
-
-    .contacts__text--large {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-
-    .contacts__text--small {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-    }
-
-    .contacts__social {
-        position: static;
-        justify-content: flex-start;
-        gap: 1rem;
-        margin-top: auto;
-    }
-
-    .contacts__social .social-link__icon {
-        width: 2.8rem;
-        height: 2.8rem;
-    }
-
-    .footer {
-        margin: 3rem 1rem 1rem 1rem;
-        text-align: left;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem 0;
-    }
-
+    
     .prototype-analysis {
         margin: 2rem 1rem;
         padding: 1rem;
@@ -2822,174 +2133,33 @@ body {
     
     .prototype-analysis__title {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero__title {
+        font-size: 2.2rem;
     }
     
-    .prototype-analysis__form {
-        padding: 1.2rem;
+    .hero__text {
+        font-size: 1rem;
     }
     
-    .analysis-form__title {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+    .advantage-card__image {
+        width: 4.5rem;
+        height: 4.5rem;
     }
     
-    .analysis-form__group {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-    }
-    
-    .analysis-form__label {
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .analysis-form__input,
-    .analysis-form__select,
-    .analysis-form__textarea {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.9rem;
-    }
-    
-    .analysis-form__rating span {
-        font-size: 0.9rem;
-    }
-    
-    .analysis-form__rating-input {
-        gap: 0.2rem;
-    }
-    
-    .analysis-form__rating-input label {
-        font-size: 0.8rem;
-    }
-    
-    .analysis-form__button {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .prototype-analysis__info {
-        padding: 1.2rem;
-    }
-    
-    .prototype-analysis__info-title {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .prototype-analysis__info-text {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
-    
-    .prototype-analysis__social-links .social-link__icon {
+    .accordion__toggle img {
         width: 2rem;
         height: 2rem;
     }
 }
 
-/* Дополнительные улучшения для планшетов в портретной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    .hero {
-        height: 22rem;
-        padding: 0 3rem;
-    }
-    
-    .hero__title {
-        font-size: 4rem;
-    }
-    
-    .hero__img {
-        width: 16rem;
-    }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
-    }
-    
-    .advantages__text--large,
-    .advantages__text--small {
-        width: 100%;
-    }
-
-    .slider__container {
-        height: 22rem;
-    }
-}
-
-/* Оптимизация для планшетов в альбомной ориентации */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    .hero {
-        height: 20rem;
-    }
-    
-    .hero__img {
-        width: 15rem;
-    }
-    
-    .advantages__row {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .advantage-card {
-        width: 48%;
-        margin-bottom: 1rem;
-    }
-
-    .slider__container {
-        height: 20rem;
-    }
-}
-
-/* Улучшение читаемости на мобильных устройствах */
-@media (max-width: 768px) {
-    body {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
-}
-
-/* Скрывать скролл при открытом меню */
 body.no-scroll {
     overflow: hidden;
 }
 
-/* Кнопка прототипа Figma */
-.figma-prototype-btn {
-    background: #3E92A3;
-    color: white;
-    padding: 1rem 2.2rem;
-    border-radius: 3rem;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    display: inline-block;
-}
-
-.figma-prototype-btn:hover {
-    background: #2C6C7A;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(62, 146, 163, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-.figma-prototype-btn:active {
-    transform: translateY(0);
-}
-
-/* Адаптив для мобильных */
 @media (max-width: 768px) {
     .figma-prototype-btn {
         padding: 0.8rem 1.5rem;
@@ -3001,5 +2171,85 @@ body.no-scroll {
     .figma-prototype-btn {
         padding: 0.7rem 1.2rem;
         font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero {
+        height: 22rem;
+        padding: 0 3rem;
+    }
+    
+    .hero__title {
+        font-size: 3.5rem;
+    }
+    
+    .hero__img {
+        width: 16rem;
+    }
+    
+    .advantage-card {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+
+    .slider__container {
+        height: 22rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        height: 20rem;
+    }
+    
+    .hero__img {
+        width: 15rem;
+    }
+    
+    .advantage-card {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+
+    .slider__container {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-success__content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-success__text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-success__content {
+        padding: 1.8rem 1.2rem;
+    }
+    
+    .modal-success__title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-success__text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 }
